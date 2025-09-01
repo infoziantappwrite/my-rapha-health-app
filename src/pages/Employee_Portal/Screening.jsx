@@ -1,7 +1,7 @@
 import React from 'react'
 import ScreeningCards from './components/ScreeningCards'
 import ScreeningProgress from './components/ScreeningProgress'
-import ScheduleScreening from './components/ScheduleScreening.JSX'
+import ScheduleScreen from './components/ScheduleScreen'
 
 const Screening = () => {
   return (
