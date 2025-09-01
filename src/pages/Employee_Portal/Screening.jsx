@@ -14,7 +14,7 @@ const Screening = () => {
       </div>
       <ScreeningCards/>
       <ScreeningProgress/>
-      <ScheduleScreening/>
+      <ScheduleScreen/>
       
     </div>
   )
