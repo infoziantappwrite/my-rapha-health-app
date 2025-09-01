@@ -4,7 +4,7 @@ import { BookOpen, Calendar, Activity, FileText, MessageSquare, Compass } from "
 export default function Navbar() {
   const navItems = [
     { name: "My Journey", path: "/", icon: Compass },
-    { name: "Health Education", path: "/education", icon: BookOpen, indicator: "current" },
+    { name: "Health Education", path: "/education", icon: BookOpen },
     { name: "Screening", path: "/screening", icon: Calendar },
     { name: "My Results", path: "/results", icon: Activity },
     { name: "Documents", path: "/documents", icon: FileText },

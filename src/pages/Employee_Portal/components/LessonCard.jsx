@@ -1,9 +1,10 @@
+// LessonCard.jsx
 import React from "react";
 import { Microscope, Clock, Target, Play } from "lucide-react";
 
 const LessonCard = () => {
   return (
-    <div className="max-w-6xl bg-blue-50 border border-blue-200 rounded-2xl p-6 shadow-sm">
+    <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 shadow-sm">
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
         {/* Icon */}
         <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm border border-blue-200">
