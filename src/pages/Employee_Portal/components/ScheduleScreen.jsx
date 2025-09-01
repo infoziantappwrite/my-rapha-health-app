@@ -56,7 +56,7 @@ const options = [
   },
 ];
 
-const ScheduleScreening = () => {
+const ScheduleScreen = () => {
   return (
     <section className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl shadow-md p-8">
       {/* Header */}
@@ -123,4 +123,4 @@ const ScheduleScreening = () => {
   );
 };
 
-export default ScheduleScreening;
+export default ScheduleScreen;
