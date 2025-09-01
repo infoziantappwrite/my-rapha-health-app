@@ -63,7 +63,7 @@ export default function DocumentManager() {
   };
 
   return (
-    <div className="p-6">
+    <div>
       {/* Upload Box */}
       <div className="border-2 border-dashed border-blue-300 rounded-xl p-10 text-center bg-blue-50">
         <div className="flex justify-center mb-4">
