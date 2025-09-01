@@ -88,85 +88,122 @@ export default function DocumentManager() {
       </div>
 
       {/* Document Library */}
-      <div className="mt-8 border border-gray-300 p-6 rounded-xl bg-white shadow">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">
-          Document Library
-        </h3>
+     <div className="mt-6 border border-gray-300 p-3 sm:p-6 rounded-xl bg-white shadow">
+  <h3 className="text-lg font-semibold mb-4 text-gray-700">
+    Document Library
+  </h3>
 
-        {/* Tabs */}
-        <div className="flex gap-2 mb-4">
-          {tabs.map((tab) => (
-            <button
-              key={tab.name}
-              onClick={() => setActiveTab(tab.name)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium border  border-gray-300  ${
-                activeTab === tab.name
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
-            >
-              {tab.name}{" "}
+  {/* Tabs */}
+  <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide">
+    {tabs.map((tab) => (
+      <button
+        key={tab.name}
+        onClick={() => setActiveTab(tab.name)}
+        className={`flex-shrink-0 px-3 py-1 sm:px-4 sm:py-2 rounded-lg text-sm font-medium border border-gray-300 ${
+          activeTab === tab.name
+            ? "bg-blue-600 text-white"
+            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+        }`}
+      >
+        {tab.name}
+        <span
+          className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+            activeTab === tab.name
+              ? "bg-white text-blue-600"
+              : "bg-gray-300 text-gray-700"
+          }`}
+        >
+          {tab.count}
+        </span>
+      </button>
+    ))}
+  </div>
+
+  {/* Table for large screens */}
+  <div className="hidden sm:block bg-white rounded-lg shadow overflow-x-auto">
+    <table className="w-full text-left min-w-[600px]">
+      <thead className="bg-gray-50 text-gray-600 text-sm">
+        <tr>
+          <th className="p-3 sm:p-4 font-medium">Document</th>
+          <th className="p-3 sm:p-4 font-medium">Type</th>
+          <th className="p-3 sm:p-4 font-medium">Category</th>
+          <th className="p-3 sm:p-4 font-medium">Status</th>
+          <th className="p-3 sm:p-4 font-medium">Date</th>
+          <th className="p-3 sm:p-4 font-medium">Actions</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y text-gray-700 text-sm">
+        {documents.map((doc, idx) => (
+          <tr key={idx} className="hover:bg-gray-50">
+            <td className="p-3 sm:p-4 flex items-center gap-3">
+              <div className="w-8 h-10 bg-blue-100 flex items-center justify-center rounded">
+                <span className="text-blue-600 font-bold text-sm">PDF</span>
+              </div>
+              <div>
+                <p className="font-medium">{doc.name}</p>
+                <p className="text-xs text-gray-500">{doc.size}</p>
+              </div>
+            </td>
+            <td className="p-3 sm:p-4">{doc.type}</td>
+            <td className="p-3 sm:p-4">{doc.category}</td>
+            <td className="p-3 sm:p-4">
               <span
-                className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
-                  activeTab === tab.name
-                    ? "bg-white text-blue-600"
-                    : "bg-gray-300 text-gray-700"
+                className={`px-2 py-1 text-xs rounded-full font-medium ${
+                  statusColors[doc.status]
                 }`}
               >
-                {tab.count}
+                {doc.status}
               </span>
-            </button>
-          ))}
-        </div>
+            </td>
+            <td className="p-3 sm:p-4">{doc.date}</td>
+            <td className="p-3 sm:p-4 flex gap-3 text-gray-500">
+              <Eye className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+              <Download className="w-5 h-5 cursor-pointer hover:text-green-600" />
+              <MoreVertical className="w-5 h-5 cursor-pointer hover:text-gray-700" />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 
-        {/* Table */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-gray-50 text-gray-600 text-sm">
-              <tr>
-                <th className="p-4 font-medium">Document</th>
-                <th className="p-4 font-medium">Type</th>
-                <th className="p-4 font-medium">Category</th>
-                <th className="p-4 font-medium">Status</th>
-                <th className="p-4 font-medium">Date</th>
-                <th className="p-4 font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y text-gray-700">
-              {documents.map((doc, idx) => (
-                <tr key={idx} className="hover:bg-gray-50">
-                  <td className="p-4 flex items-center gap-3">
-                    <div className="w-8 h-10 bg-blue-100 flex items-center justify-center rounded">
-                      <span className="text-blue-600 font-bold text-sm">PDF</span>
-                    </div>
-                    <div>
-                      <p className="font-medium">{doc.name}</p>
-                      <p className="text-xs text-gray-500">{doc.size}</p>
-                    </div>
-                  </td>
-                  <td className="p-4">{doc.type}</td>
-                  <td className="p-4">{doc.category}</td>
-                  <td className="p-4">
-                    <span
-                      className={`px-2 py-1 text-xs rounded-full font-medium ${
-                        statusColors[doc.status]
-                      }`}
-                    >
-                      {doc.status}
-                    </span>
-                  </td>
-                  <td className="p-4">{doc.date}</td>
-                  <td className="p-4 flex gap-3 text-gray-500">
-                    <Eye className="w-5 h-5 cursor-pointer hover:text-blue-600" />
-                    <Download className="w-5 h-5 cursor-pointer hover:text-green-600" />
-                    <MoreVertical className="w-5 h-5 cursor-pointer hover:text-gray-700" />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+  {/* Mobile card view */}
+  <div className="sm:hidden flex flex-col gap-4">
+    {documents.map((doc, idx) => (
+      <div key={idx} className="border border-gray-300 rounded-lg p-4 shadow-sm bg-white">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-10 bg-blue-100 flex items-center justify-center rounded">
+              <span className="text-blue-600 font-bold text-sm">PDF</span>
+            </div>
+            <div>
+              <p className="font-medium">{doc.name}</p>
+              <p className="text-xs text-gray-500">{doc.size}</p>
+            </div>
+          </div>
+          <span
+            className={`px-2 py-1 text-xs rounded-full font-medium ${
+              statusColors[doc.status]
+            }`}
+          >
+            {doc.status}
+          </span>
+        </div>
+        <div className="flex justify-between text-gray-600 text-sm">
+          <span>{doc.type}</span>
+          <span>{doc.category}</span>
+          <span>{doc.date}</span>
+        </div>
+        <div className="flex gap-3 mt-2 text-gray-500">
+          <Eye className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+          <Download className="w-5 h-5 cursor-pointer hover:text-green-600" />
+          <MoreVertical className="w-5 h-5 cursor-pointer hover:text-gray-700" />
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 }
