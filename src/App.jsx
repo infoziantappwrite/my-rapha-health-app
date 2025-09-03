@@ -10,6 +10,7 @@ import Messages from "./pages/Employee_Portal/Messages";
 
 // ✅ Under Development Page
 import UnderDevelopment from "./pages/UnderDevelopment";
+import MyResult from "./pages/Employee_Portal/MyResult";
 
 export default function App() {
   return (
@@ -22,9 +23,9 @@ export default function App() {
           <Route path="/" element={<MyJourney />} />
           <Route path="/education" element={<HealthEducation />} />
           <Route path="/screening" element={<Screening />} />
-          <Route path="/results" element={<UnderDevelopment />} />
           <Route path="/documents" element={<DocumentVault />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/results" element={<MyResult />} />
 
           {/* 🚧 Catch-all for undefined routes */}
           <Route path="*" element={<UnderDevelopment />} />
