@@ -13,7 +13,6 @@ import MyResult from "./pages/Employee_Portal/MyResult";
 // ✅ Under Development Page
 import UnderDevelopment from "./pages/UnderDevelopment";
 import SideBar from "./components/SideBar";
-import Navbar from "./components/EmployeeHeader/Navbar";
 import EmployeeLayout from "./components/EmployeeHeader/EmployeeLayout";
 import EmployerLayout from "./components/EmployerHeader/EmployerLayout";
 import NavigatorHubLayout from "./components/NavigatorHub/NavigatorHubLayout";
