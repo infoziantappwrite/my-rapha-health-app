@@ -3,22 +3,23 @@ import { BookOpen, Calendar, Activity, FileText, MessageSquare, Compass } from "
 
 export default function Navbar() {
   const navItems = [
-    { name: "My Journey", path: "/", icon: Compass },
-    { name: "Health Education", path: "/education", icon: BookOpen },
-    { name: "Screening", path: "/screening", icon: Calendar },
-    { name: "My Results", path: "/results", icon: Activity },
-    { name: "Documents", path: "/documents", icon: FileText },
-    { name: "Messages", path: "/messages", icon: MessageSquare, badge: 2 },
+    { name: "My Journey", path: "/employee", icon: Compass },
+    { name: "Health Education", path: "/employee/education", icon: BookOpen },
+    { name: "Screening", path: "/employee/screening", icon: Calendar },
+    { name: "My Results", path: "/employee/results", icon: Activity },
+    { name: "Documents", path: "/employee/documents", icon: FileText },
+    { name: "Messages", path: "/employee/messages", icon: MessageSquare, badge: 2 },
   ];
 
   return (
     <nav className="bg-white border-b border-gray-200 shadow-sm">
       {/* Desktop view */}
       <div className="hidden md:flex items-center space-x-6 px-6 py-4">
-        {navItems.map(({ name, path, icon: Icon, indicator, badge }) => (
+        {navItems.map(({ name, path, icon: Icon, badge }) => (
           <NavLink
             key={name}
             to={path}
+            end={path === "/employee"} // Use 'end' prop for exact matching
             className={({ isActive }) =>
               `group relative flex items-center space-x-2 px-1 py-1 text-sm font-medium rounded-lg transition-all duration-200 ${
                 isActive
@@ -39,9 +40,6 @@ export default function Navbar() {
                   <Icon size={16} />
                   <span>{name}</span>
                 </span>
-                {indicator && !isActive && (
-                  <span className="text-xs text-gray-500 ml-1">{indicator}</span>
-                )}
                 {badge && (
                   <span className="ml-1 px-1.5 py-0.5 text-xs bg-gray-800 text-white rounded-full min-w-[18px] text-center">
                     {badge}
@@ -59,6 +57,7 @@ export default function Navbar() {
           <NavLink
             key={name}
             to={path}
+            end={path === "/employee"} // Use 'end' prop for exact matching
             className={({ isActive }) =>
               `flex-shrink-0 flex items-center space-x-2 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                 isActive
