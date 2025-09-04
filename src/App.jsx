@@ -19,6 +19,12 @@ import EmployerLayout from "./components/EmployerHeader/EmployerLayout";
 import NavigatorHubLayout from "./components/NavigatorHub/NavigatorHubLayout";
 import ProviderLayout from "./components/providerHeader/providerLayout";
 
+
+import EmployeerDashboard from "./pages/Employer_Portal/EmployeerDashboard";
+import Reports from "./pages/Employer_Portal/Reports";
+import Aiinsights from "./pages/Employer_Portal/Aiinsights";
+import MessageNavigatorParent from "./pages/Employer_Portal/MessageNavigatorParent";
+
 export default function App() {
   return (
     <Router>
@@ -44,10 +50,10 @@ export default function App() {
 
           {/* Employer Portal Routes */}
           <Route path="/employer" element={<EmployerLayout />}>
-              <Route index element={<div>Employer Dashboard</div>} />
-            <Route path="insights" element={<div>AI Insights Page</div>} />
-            <Route path="reports" element={<div>Reports Page</div>} />
-            <Route path="messages" element={<div>Message Navigator Page</div>} />
+              <Route index element={<EmployeerDashboard/>} />
+            <Route path="insights" element={<Aiinsights/>} />
+            <Route path="reports" element={<Reports/>} />
+            <Route path="messages" element={<MessageNavigatorParent/>} />
           </Route>
 
           <Route path="/navigator" element={<NavigatorHubLayout />}>

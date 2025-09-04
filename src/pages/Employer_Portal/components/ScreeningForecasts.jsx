@@ -35,39 +35,43 @@ const ScreeningForecasts = () => {
         </div>
 
         {/* Controls */}
-        <div className="px-6 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <label className="text-sm font-medium">Time Range:</label>
-            <button className="flex items-center justify-between w-40 px-3 py-2 border border-gray-300 rounded-md text-sm bg-white hover:bg-gray-50">
-              Next 60 Days
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 opacity-50"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="m6 9 6 6 6-6"></path>
-              </svg>
-            </button>
-          </div>
-          <button className="flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm hover:bg-gray-50">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-3 w-3 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M12 15V3"></path>
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <path d="m7 10 5 5 5-5"></path>
-            </svg>
-            Export Forecast
-          </button>
-        </div>
+<div className="px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-3 sm:space-y-0">
+  {/* Time Range */}
+  <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+    <label className="text-sm font-medium">Time Range:</label>
+    <button className="flex items-center justify-between w-full sm:w-40 px-3 py-2 border border-gray-300 rounded-md text-sm bg-white hover:bg-gray-50">
+      Next 60 Days
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-4 w-4 opacity-50"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </button>
+  </div>
+
+  {/* Export Button */}
+  <button className="flex items-center w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-md text-sm hover:bg-gray-50">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-3 w-3 mr-2"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path d="M12 15V3"></path>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <path d="m7 10 5 5 5-5"></path>
+    </svg>
+    Export Forecast
+  </button>
+</div>
+
 
         {/* Site Forecasts */}
         <div className="px-6 space-y-6">

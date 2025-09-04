@@ -12,7 +12,7 @@ export default function EmployerNavbar() {
   return (
     <nav className="bg-white border-b border-gray-200 shadow-sm">
       {/* Desktop view */}
-      <div className="hidden md:flex items-center space-x-6 px-6 py-4">
+      <div className="hidden md:flex items-center space-x-6 px-6 py-2">
         {navItems.map(({ name, path, icon: Icon }) => (
           <NavLink
             key={name}
