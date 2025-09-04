@@ -3,7 +3,6 @@ import Progressbar from "./components/Progressbar";
 import HealthJourneyTimeline from "./components/HealthJourneyTimeline";
 import ActionCards from "./components/ActionCards";
 import AIHealthAssistant from './components/HealthAssistant';
-import Navbar from '../../components/EmployeeHeader/Navbar';
 
 const MyJourney = () => {
   return (
