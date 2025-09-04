@@ -33,13 +33,13 @@ const SideBar = () => {
   return (
     <>
       {/* HEADER */}
-      <header className="flex items-center justify-between p-4 mb-1 bg-white shadow-md">
+      <header className="flex items-center justify-between px-2 py-1 mb-1 bg-white shadow-md">
         <div className="flex items-center space-x-4">
           <div className="flex items-center">
             <Heart className="text-sky-500 mr-2" size={32} />
             <div>
-              <h1 className="text-2xl font-semibold text-slate-800">Rapha Health</h1>
-              <p className="text-sm text-gray-500 mt-0.5">Enhanced Screening Platform v2.5</p>
+              <h1 className="text-xl font-semibold text-slate-800">Rapha Health</h1>
+              <p className="text-xs text-gray-500 mt-0.5">Enhanced Screening Platform v2.5</p>
             </div>
           </div>
         </div>

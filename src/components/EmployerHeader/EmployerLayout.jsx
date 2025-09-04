@@ -7,7 +7,7 @@ export default function EmployerLayout() {
         <div>
             <NavBarLocationTiming />
             <EmployerNavbar />
-            <div className="p-4">
+            <div>
                 <Outlet />  {/* ✅ renders the nested route */}
             </div>
         </div>
