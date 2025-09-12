@@ -30,8 +30,9 @@ const MyResult = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
       {/* Title */}
+      <div className="space-y-10  max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
       <h1 className="text-2xl font-bold mb-2">Your Screening Results</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-6">
         Comprehensive health screening results with personalized insights and next steps
@@ -56,6 +57,7 @@ const MyResult = () => {
 
       {/* Tab Content */}
       <div className="mb-6">{renderTabContent()}</div>
+      </div>
     </div>
   );
 };

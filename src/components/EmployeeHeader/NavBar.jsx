@@ -12,9 +12,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+    <nav className=" dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 shadow-sm">
         {/* Desktop view */}
-        <div className="hidden md:flex items-center space-x-6 px-6 py-4">
+        <div className="hidden md:flex items-center space-x-6 px-6 py-2">
           {navItems.map(({ name, path, icon: Icon, badge }) => (
             <NavLink
               key={name}
@@ -52,7 +52,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile view */}
-        <div className="flex md:hidden overflow-x-auto space-x-4 px-4 py-3 scrollbar-hide">
+        <div className="flex md:hidden overflow-x-auto space-x-4 px-4 py-2 scrollbar-hide">
           {navItems.map(({ name, path, icon: Icon, badge }) => (
             <NavLink
               key={name}
