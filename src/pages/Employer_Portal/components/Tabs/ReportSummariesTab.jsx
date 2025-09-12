@@ -19,7 +19,7 @@ const ReportSummariesTab = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="lucide lucide-file-text h-12 w-12 mx-auto text-gray-400 mb-4"
+          className="lucide lucide-file-text h-12 w-12 mx-auto text-gray-400 dark:text-gray-500 mb-4"
           aria-hidden="true"
         >
           <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
@@ -30,12 +30,12 @@ const ReportSummariesTab = () => {
         </svg>
 
         {/* Title */}
-        <h3 className="text-lg font-medium text-gray-900 mb-2">
+        <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
           Report Summaries
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-400">
           AI-generated summaries of all program reports will appear here.
         </p>
       </div>

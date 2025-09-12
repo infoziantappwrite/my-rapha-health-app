@@ -10,7 +10,7 @@ export default function EmployerNavbar() {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm">
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
       {/* Desktop view */}
       <div className="hidden md:flex items-center space-x-6 px-6 py-2">
         {navItems.map(({ name, path, icon: Icon }) => (
@@ -21,8 +21,8 @@ export default function EmployerNavbar() {
             className={({ isActive }) =>
               `group relative flex items-center space-x-2 px-1 py-1 text-sm font-medium rounded-lg transition-all duration-200 ${
                 isActive
-                  ? "border-2 border-emerald-500 bg-white text-emerald-600 shadow-sm"
-                  : "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                  ? "border-2 border-emerald-500 bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm"
+                  : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-800"
               }`
             }
           >
@@ -31,7 +31,7 @@ export default function EmployerNavbar() {
                 className={`flex items-center space-x-2 rounded-md px-2 py-1 transition-colors duration-200 ${
                   isActive
                     ? "bg-emerald-500 text-white"
-                    : "group-hover:bg-emerald-100 group-hover:text-emerald-600"
+                    : "group-hover:bg-emerald-100 dark:group-hover:bg-gray-700 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
                 }`}
               >
                 <Icon size={16} />
@@ -52,8 +52,8 @@ export default function EmployerNavbar() {
             className={({ isActive }) =>
               `flex-shrink-0 flex items-center space-x-2 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                 isActive
-                  ? "border-2 border-emerald-500 bg-white text-emerald-600 shadow-sm"
-                  : "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                  ? "border-2 border-emerald-500 bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm"
+                  : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-800"
               }`
             }
           >

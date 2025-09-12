@@ -8,7 +8,7 @@ const AskAiDirectlyTab = () => {
       className="flex-1 outline-none"
     >
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl border border-gray-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col gap-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
           <div className="p-8 text-center">
             {/* Icon */}
             <svg
@@ -21,7 +21,7 @@ const AskAiDirectlyTab = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-bot h-12 w-12 mx-auto text-emerald-600 mb-4"
+              className="lucide lucide-bot h-12 w-12 mx-auto text-emerald-600 dark:text-emerald-400 mb-4"
               aria-hidden="true"
             >
               <path d="M12 8V4H8"></path>
@@ -36,12 +36,12 @@ const AskAiDirectlyTab = () => {
             <h3 className="text-lg font-medium mb-2">Ask AI Directly</h3>
 
             {/* Description */}
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Get instant answers about your health program performance
             </p>
 
             {/* Button */}
-            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 bg-emerald-600 text-white hover:bg-emerald-700 shadow">
+            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 shadow">
               Start with Navigator Assistant
             </button>
           </div>

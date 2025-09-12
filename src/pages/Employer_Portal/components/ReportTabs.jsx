@@ -191,40 +191,40 @@ const reports = {
 
 const ReportCard = ({ report }) => {
   return (
-    <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl hover:shadow-lg transition-all duration-200 border-2 border-gray-200 hover:border-emerald-200">
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 flex flex-col gap-6 rounded-xl hover:shadow-lg transition-all duration-200 border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-500">
       {/* Header */}
       <div className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 pt-6 pb-3">
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center">
-              <Target className="h-5 w-5 text-emerald-600" />
+            <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900 rounded-lg flex items-center justify-center">
+              <Target className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
               <h3 className="font-semibold text-sm">{report.title}</h3>
-              <div className="text-xs text-gray-500">{report.date}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">{report.date}</div>
             </div>
           </div>
-          <div className="w-8 h-8 bg-gray-50 rounded flex items-center justify-center">
-            <ChartColumn className="h-4 w-4 text-gray-600" />
+          <div className="w-8 h-8 bg-gray-50 dark:bg-gray-700 rounded flex items-center justify-center">
+            <ChartColumn className="h-4 w-4 text-gray-600 dark:text-gray-300" />
           </div>
         </div>
       </div>
 
       {/* Content */}
       <div className="px-6 pb-6 space-y-4">
-        <div className="text-xs bg-gray-50 p-2 rounded">
+        <div className="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
           <strong>Filters:</strong> {report.filters}
         </div>
-        <div className="text-xs bg-emerald-50 p-3 rounded border border-emerald-200 flex items-start space-x-2">
+        <div className="text-xs bg-emerald-50 dark:bg-emerald-900 p-3 rounded border border-emerald-200 dark:border-emerald-700 flex items-start space-x-2">
           <div className="flex space-x-1">
-            <Sparkles className="h-3 w-3 text-emerald-600" />
-            <TrendingUp className="h-3 w-3 text-green-600" />
+            <Sparkles className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
+            <TrendingUp className="h-3 w-3 text-green-600 dark:text-green-400" />
           </div>
-          <div className="text-xs text-emerald-800">{report.insight}</div>
+          <div className="text-xs text-emerald-800 dark:text-emerald-200">{report.insight}</div>
         </div>
 
         {/* Stats */}
-        <div className="flex items-center justify-between text-xs text-gray-500">
+        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
           <div className="flex items-center space-x-3">
             <span>{report.stats.views} views</span>
             <span>{report.stats.exports} exports</span>
@@ -234,16 +234,16 @@ const ReportCard = ({ report }) => {
 
         {/* Actions */}
         <div className="flex space-x-2">
-          <button className="flex-1 inline-flex items-center justify-center text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700 rounded-md px-3 h-8">
+          <button className="flex-1 inline-flex items-center justify-center text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 rounded-md px-3 h-8">
             <Eye className="h-3 w-3 mr-2" /> View Full Report
           </button>
-          <button className="border border-gray-300 rounded-md px-3 h-8 flex items-center hover:bg-gray-100">
+          <button className="border border-gray-300 dark:border-gray-600 rounded-md px-3 h-8 flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
             <Download className="h-3 w-3" />
           </button>
-          <button className="border border-gray-300 rounded-md px-3 h-8 flex items-center hover:bg-gray-100">
+          <button className="border border-gray-300 dark:border-gray-600 rounded-md px-3 h-8 flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
             <Share2 className="h-3 w-3" />
           </button>
-          <button className="border border-gray-300 rounded-md px-3 h-8 flex items-center hover:bg-gray-100">
+          <button className="border border-gray-300 dark:border-gray-600 rounded-md px-3 h-8 flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
             <RefreshCw className="h-3 w-3" />
           </button>
         </div>
@@ -255,7 +255,6 @@ const ReportCard = ({ report }) => {
 const ReportTabs = () => {
   const [activeTab, setActiveTab] = useState("all");
 
-  // Collect cards based on tab
   const visibleReports =
     activeTab === "all"
       ? Object.values(reports).flat()
@@ -266,7 +265,7 @@ const ReportTabs = () => {
       {/* Tabs */}
       <div
         role="tablist"
-        className="bg-gray-100 h-10 rounded-xl p-[3px] grid grid-cols-7 gap-1 mb-6"
+        className="bg-gray-100 dark:bg-gray-700 h-10 rounded-xl p-[3px] grid grid-cols-7 gap-1 mb-6"
       >
         {tabs.map((tab) => (
           <button
@@ -277,8 +276,8 @@ const ReportTabs = () => {
             className={`flex items-center justify-center gap-2 px-2 py-1 text-sm font-medium rounded-lg border transition
               ${
                 activeTab === tab.id
-                  ? "bg-white border-gray-300 shadow-sm"
-                  : "border-transparent hover:bg-gray-200"
+                  ? "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 shadow-sm"
+                  : "border-transparent hover:bg-gray-200 dark:hover:bg-gray-600"
               }`}
           >
             {tab.icon}

@@ -15,21 +15,21 @@ const MessageNavigatorModal = ({ open, onClose }) => {
       ></div>
 
       {/* Modal Content */}
-      <div className="relative bg-white rounded-lg shadow-lg w-full max-w-3xl max-h-[80vh] overflow-y-auto p-6 z-50">
+      <div className="relative bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg w-full max-w-3xl max-h-[80vh] overflow-y-auto p-6 z-50">
         {/* Header */}
         <div className="flex items-center space-x-2 mb-4">
-          <MessageSquare className="h-5 w-5 text-emerald-600" />
+          <MessageSquare className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
           <h2 className="text-lg font-semibold">Message Navigator Team</h2>
         </div>
 
         {/* Tabs */}
-        <div className="bg-gray-100 rounded-xl p-1 grid grid-cols-2 mb-6">
+        <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-1 grid grid-cols-2 mb-6">
           <button
             onClick={() => setActiveTab("compose")}
             className={`px-3 py-2 rounded-xl text-sm font-medium ${
               activeTab === "compose"
-                ? "bg-white border border-gray-300 text-gray-900"
-                : "text-gray-600"
+                ? "bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
+                : "text-gray-600 dark:text-gray-300"
             }`}
           >
             Compose Message
@@ -38,8 +38,8 @@ const MessageNavigatorModal = ({ open, onClose }) => {
             onClick={() => setActiveTab("history")}
             className={`px-3 py-2 rounded-xl text-sm font-medium ${
               activeTab === "history"
-                ? "bg-white border border-gray-300 text-gray-900"
-                : "text-gray-600"
+                ? "bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
+                : "text-gray-600 dark:text-gray-300"
             }`}
           >
             Message History
@@ -53,7 +53,7 @@ const MessageNavigatorModal = ({ open, onClose }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-medium">Recipient</label>
-                <button className="w-full mt-1 flex items-center justify-between border border-gray-300 rounded-md px-3 py-2 text-sm">
+                <button className="w-full mt-1 flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                   Rapha Navigator Team
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const MessageNavigatorModal = ({ open, onClose }) => {
               </div>
               <div>
                 <label className="text-sm font-medium">Priority</label>
-                <button className="w-full mt-1 flex items-center justify-between border border-gray-300 rounded-md px-3 py-2 text-sm">
+                <button className="w-full mt-1 flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                   Medium Priority
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const MessageNavigatorModal = ({ open, onClose }) => {
               <input
                 type="text"
                 placeholder="Enter message subject..."
-                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                className="w-full mt-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400"
               />
             </div>
 
@@ -97,7 +97,7 @@ const MessageNavigatorModal = ({ open, onClose }) => {
             <div>
               <label className="text-sm font-medium">Message</label>
               <textarea
-                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm min-h-44 resize-none"
+                className="w-full mt-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 min-h-44 resize-none"
                 defaultValue={`Hi Navigator Team,
 
 Please provide an update on our Phase 2 rollout progress:
@@ -114,7 +114,7 @@ Jennifer Martinez, CEO`}
 
             {/* Attach Button */}
             <div className="flex items-center space-x-4">
-              <button className="flex items-center gap-2 border border-gray-300 rounded-md px-4 py-2 text-sm hover:bg-gray-100">
+              <button className="flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">
                 <Paperclip className="h-4 w-4" />
                 Attach File
               </button>
@@ -124,11 +124,11 @@ Jennifer Martinez, CEO`}
             <div className="flex justify-between">
               <button
                 onClick={onClose}
-                className="border border-gray-300 rounded-md px-4 py-2 text-sm hover:bg-gray-100"
+                className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 Cancel
               </button>
-              <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md px-4 py-2 text-sm">
+              <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-md px-4 py-2 text-sm">
                 <Send className="h-4 w-4" />
                 Send Message
               </button>
@@ -137,80 +137,66 @@ Jennifer Martinez, CEO`}
         )}
 
         {activeTab === "history" && (
-  <div className="space-y-4">
-    {/* Message 1 */}
-    <div className="bg-white border border-gray-300 rounded-xl hover:shadow-sm cursor-pointer p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <div className="font-medium">High-risk employee follow-up status</div>
-          <div className="text-sm text-gray-500 mt-1">
-            Jennifer Martinez (CEO) → Dr. Sarah Chen
+          <div className="space-y-4">
+            {[ // Example messages
+              {
+                title: "High-risk employee follow-up status",
+                from: "Jennifer Martinez (CEO) → Dr. Sarah Chen",
+                date: "2025-01-20",
+                status: "✓ Replied",
+                bg: "bg-green-100 dark:bg-green-900",
+                text: "text-green-800 dark:text-green-200",
+              },
+              {
+                title: "Cardiovascular screening recommendations",
+                from: "Dr. Lisa Park → HR Team",
+                date: "2025-01-18",
+                status: "📤 Sent",
+                bg: "bg-blue-100 dark:bg-blue-900",
+                text: "text-blue-800 dark:text-blue-200",
+              },
+              {
+                title: "Resource allocation update for Q1",
+                from: "Operations Team → Jennifer Martinez (CEO)",
+                date: "2025-01-15",
+                status: "⏳ Pending",
+                bg: "bg-yellow-100 dark:bg-yellow-900",
+                text: "text-yellow-800 dark:text-yellow-200",
+              },
+              {
+                title: "Monthly screening summary report",
+                from: "Analytics System → Rapha Navigator Team",
+                date: "2025-01-10",
+                status: "📎 Attachment",
+                bg: "bg-purple-100 dark:bg-purple-900",
+                text: "text-purple-800 dark:text-purple-200",
+              },
+            ].map((msg, idx) => (
+              <div
+                key={idx}
+                className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:shadow-sm cursor-pointer p-4"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <div className="font-medium">{msg.title}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">{msg.from}</div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{msg.date}</div>
+                    <span className={`${msg.bg} ${msg.text} px-2 py-0.5 rounded-md text-xs font-medium`}>
+                      {msg.status}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div className="text-sm text-gray-500">2025-01-20</div>
-          <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-md text-xs font-medium">
-            ✓ Replied
-          </span>
-        </div>
-      </div>
-    </div>
-
-    {/* Message 2 */}
-    <div className="bg-white border border-gray-300 rounded-xl hover:shadow-sm cursor-pointer p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <div className="font-medium">Cardiovascular screening recommendations</div>
-          <div className="text-sm text-gray-500 mt-1">Dr. Lisa Park → HR Team</div>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div className="text-sm text-gray-500">2025-01-18</div>
-          <span className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-md text-xs font-medium">
-            📤 Sent
-          </span>
-        </div>
-      </div>
-    </div>
-
-    {/* Message 3 */}
-    <div className="bg-white border border-gray-300 rounded-xl hover:shadow-sm cursor-pointer p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <div className="font-medium">Resource allocation update for Q1</div>
-          <div className="text-sm text-gray-500 mt-1">Operations Team → Jennifer Martinez (CEO)</div>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div className="text-sm text-gray-500">2025-01-15</div>
-          <span className="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-md text-xs font-medium">
-            ⏳ Pending
-          </span>
-        </div>
-      </div>
-    </div>
-
-    {/* Message 4 */}
-    <div className="bg-white border border-gray-300 rounded-xl hover:shadow-sm cursor-pointer p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <div className="font-medium">Monthly screening summary report</div>
-          <div className="text-sm text-gray-500 mt-1">Analytics System → Rapha Navigator Team</div>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div className="text-sm text-gray-500">2025-01-10</div>
-          <span className="bg-purple-100 text-purple-800 px-2 py-0.5 rounded-md text-xs font-medium">
-            📎 Attachment
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
+        )}
 
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          className="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100"
         >
           <X className="h-5 w-5" />
         </button>

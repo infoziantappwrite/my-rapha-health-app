@@ -9,16 +9,24 @@ const Dropdown = ({ options, selected, onChange }) => {
       {/* Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between bg-gray-100 border border-gray-300 rounded-md px-3 py-1 text-sm w-full sm:w-40 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+        className="flex items-center justify-between 
+                   bg-gray-100 dark:bg-gray-800 
+                   border border-gray-300 dark:border-gray-600 
+                   rounded-md px-3 py-1 text-sm w-full sm:w-40 
+                   focus:outline-none focus:ring-1 focus:ring-emerald-500
+                   text-gray-800 dark:text-gray-200"
       >
         <span>{selected}</span>
-        <ChevronDown className="w-4 h-4 ml-2 text-gray-600" />
+        <ChevronDown className="w-4 h-4 ml-2 text-gray-600 dark:text-gray-300" />
       </button>
 
       {/* Dropdown Menu */}
       {open && (
         <div
-          className="absolute left-0 mt-1 w-full sm:w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10 animate-fadeIn"
+          className="absolute left-0 mt-1 w-full sm:w-48 
+                     bg-white dark:bg-gray-900 
+                     border border-gray-200 dark:border-gray-700 
+                     rounded-md shadow-lg z-10 animate-fadeIn"
         >
           {options.map((opt) => (
             <div
@@ -27,12 +35,16 @@ const Dropdown = ({ options, selected, onChange }) => {
                 onChange(opt);
                 setOpen(false);
               }}
-              className={`flex items-center justify-between px-3 py-2 text-sm cursor-pointer hover:bg-emerald-50 ${
-                selected === opt ? "text-emerald-700 font-medium" : "text-gray-700"
-              }`}
+              className={`flex items-center justify-between px-3 py-2 text-sm cursor-pointer 
+                hover:bg-emerald-50 dark:hover:bg-gray-700 
+                ${
+                  selected === opt
+                    ? "text-emerald-700 dark:text-emerald-400 font-medium"
+                    : "text-gray-700 dark:text-gray-200"
+                }`}
             >
               <span>{opt}</span>
-              {selected === opt && <Check className="w-4 h-4 text-emerald-600" />}
+              {selected === opt && <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
             </div>
           ))}
         </div>
@@ -47,15 +59,18 @@ const NavBarLocationTiming = () => {
   const [timeRange, setTimeRange] = useState("Last 30 Days");
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white px-4 sm:px-6 py-3 shadow-sm mb-1 space-y-3 sm:space-y-0">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between 
+                    bg-white dark:bg-gray-900 
+                    px-4 sm:px-6 py-3 shadow-sm mb-1 
+                    space-y-3 sm:space-y-0">
       {/* Left Section - Logo + Titles + Location */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
         <Building2 className="w-6 h-6 text-emerald-500" />
         <div>
-          <h1 className="text-lg font-semibold text-emerald-700">
+          <h1 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">
             Rapha Employer Hub
           </h1>
-          <p className="text-xs text-gray-500">TechCorp Industries</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">TechCorp Industries</p>
         </div>
 
         {/* Location Dropdown */}
@@ -80,7 +95,9 @@ const NavBarLocationTiming = () => {
         </div>
 
         {/* Updated Timestamp */}
-        <span className="bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-md whitespace-nowrap">
+        <span className="bg-emerald-100 dark:bg-emerald-900 
+                         text-emerald-700 dark:text-emerald-400 
+                         text-xs px-3 py-1 rounded-md whitespace-nowrap">
           Updated 2025-01-21 11:30 AM
         </span>
       </div>
