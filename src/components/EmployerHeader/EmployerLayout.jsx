@@ -4,7 +4,7 @@ import NavBarLocationTiming from "./NavBarLocationTiming";
 
 export default function EmployerLayout() {
     return (
-        <div className="max-w-6xl mx-auto space-y-6 py-5 p-4 md:p-6 lg:p-0">
+        <div className="max-w-7xl mx-auto ">
             <NavBarLocationTiming />
             <EmployerNavbar />
             <div>
