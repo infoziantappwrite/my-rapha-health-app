@@ -30,23 +30,23 @@ const MyResult = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 sm:px-10 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
       {/* Title */}
       <h1 className="text-2xl font-bold mb-2">Your Screening Results</h1>
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 dark:text-gray-300 mb-6">
         Comprehensive health screening results with personalized insights and next steps
       </p>
 
       {/* Tabs */}
-      <div className="bg-gray-200 p-1 rounded-full flex w-full overflow-x-auto no-scrollbar mb-6">
+      <div className="bg-gray-200 dark:bg-gray-800 p-1 rounded-full flex w-full overflow-x-auto no-scrollbar mb-6">
         {TABS.map((tab) => (
           <div
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`cursor-pointer flex-1 min-w-max text-center px-4 py-2 rounded-full font-medium transition ${
               activeTab === tab
-                ? "bg-white text-gray-900 shadow-sm"
-                : "text-gray-700 hover:bg-gray-100"
+                ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm"
+                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
             }`}
           >
             {tab}

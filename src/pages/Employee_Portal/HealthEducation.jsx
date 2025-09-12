@@ -4,13 +4,20 @@ import EducationModules from './components/EducationModules';
 
 const HealthEducation = () => {
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start p-10 space-y-10">
+    <div className="min-h-screen w-full flex flex-col justify-start space-y-10 
+                    bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      
+      {/* Title Section */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Health Education Hub</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+          Health Education Hub
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400">
           Learn about the health conditions included in your screening
         </p>
       </div>
+
+      {/* Components */}
       <LessonCard />
       <EducationModules />
     </div>

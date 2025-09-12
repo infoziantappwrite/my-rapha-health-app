@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
-import { Heart, Clock, Menu, X, Award, Folder, BarChart2, MessageSquare, Briefcase, User, Compass, Server, CheckSquare } from 'lucide-react';
-import { createPortal } from 'react-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import {
+  Heart,
+  Clock,
+  Menu,
+  X,
+  Award,
+  Folder,
+  BarChart2,
+  MessageSquare,
+  Briefcase,
+  User,
+  Compass,
+  Server,
+  Moon,
+  Sun,
+} from "lucide-react";
+import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../ThemeProvider";
 
 const SideBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activePortalIndex, setActivePortalIndex] = useState(0);
   const [activeNavIndex, setActiveNavIndex] = useState(0);
+  const { isDark, setIsDark } = useTheme();
 
   const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
     { icon: <Compass size={20} />, label: "My Journey", path: "/journey" },
@@ -20,36 +35,52 @@ const SideBar = () => {
     { icon: <Clock size={20} />, label: "Screening", path: "/screening" },
     { icon: <BarChart2 size={20} />, label: "My Results", path: "/results" },
     { icon: <Folder size={20} />, label: "Documents", path: "/documents" },
-    { icon: <MessageSquare size={20} />, label: "Messages", path: "/messages" }
+    { icon: <MessageSquare size={20} />, label: "Messages", path: "/messages" },
   ];
 
   const portalItems = [
     { icon: <User size={20} />, label: "Employee Portal", path: "/employee" },
     { icon: <Compass size={20} />, label: "Navigator Hub", path: "/navigator" },
     { icon: <Server size={20} />, label: "Provider Station", path: "/provider" },
-    { icon: <Briefcase size={20} />, label: "Employer Dashboard", path: "/employer" }
+    { icon: <Briefcase size={20} />, label: "Employer Dashboard", path: "/employer" },
   ];
 
   return (
-    <>
+    <div className="max-w-6xl mx-auto space-y-6 py-5 p-4 md:p-6 lg:p-0">
       {/* HEADER */}
-      <header className="flex items-center justify-between px-2 py-1 mb-1 bg-white shadow-md">
+      <header className="flex items-center justify-between px-2 py-1 mb-1 bg-white dark:bg-gray-900 shadow-md">
         <div className="flex items-center space-x-4">
           <div className="flex items-center">
             <Heart className="text-sky-500 mr-2" size={32} />
             <div>
-              <h1 className="text-xl font-semibold text-slate-800">Rapha Health</h1>
-              <p className="text-xs text-gray-500 mt-0.5">Enhanced Screening Platform v2.5</p>
+              <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
+                Rapha Health
+              </h1>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                Enhanced Screening Platform v2.5
+              </p>
             </div>
           </div>
         </div>
 
         <div className="flex items-center space-x-4">
+          {/* THEME TOGGLE */}
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            {isDark ? (
+              <Sun className="text-yellow-400" size={22} />
+            ) : (
+              <Moon className="text-gray-600 dark:text-gray-300" size={22} />
+            )}
+          </button>
+
           <button
             onClick={toggleMenu}
-            className="flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-gray-100 transition-colors"
+            className="flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
-            <Menu className="text-gray-500" size={24} />
+            <Menu className="text-gray-500 dark:text-gray-300" size={24} />
           </button>
         </div>
       </header>
@@ -64,11 +95,14 @@ const SideBar = () => {
               style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             ></div>
 
-            <div className="relative w-full md:max-w-sm bg-white shadow-xl flex flex-col h-full animate-slide-in text-sm">
+            <div className="relative w-full md:max-w-sm bg-white dark:bg-gray-900 shadow-xl flex flex-col h-full animate-slide-in text-sm">
               {/* Sidebar Header */}
               <div className="flex justify-between items-center p-3">
-                <button onClick={toggleMenu} className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                  <X size={20} className="text-gray-500" />
+                <button
+                  onClick={toggleMenu}
+                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <X size={20} className="text-gray-500 dark:text-gray-300" />
                 </button>
               </div>
 
@@ -76,7 +110,9 @@ const SideBar = () => {
               <div className="flex-1 overflow-y-auto p-3">
                 {/* SWITCH PORTAL */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-semibold text-gray-400 mb-2">SWITCH PORTAL</h3>
+                  <h3 className="text-xs font-semibold text-gray-400 dark:text-gray-500 mb-2">
+                    SWITCH PORTAL
+                  </h3>
                   {portalItems.map((item, index) => {
                     const isActive = activePortalIndex === index;
                     return (
@@ -90,10 +126,18 @@ const SideBar = () => {
                         className={`flex items-center justify-center w-full px-4 py-2 mb-2 rounded-lg transition-colors ${
                           isActive
                             ? "bg-blue-600 text-white shadow-lg"
-                            : "bg-white text-black border border-gray-300 hover:bg-gray-100"
+                            : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                         }`}
                       >
-                        <span className={`mr-2 ${isActive ? "text-white" : "text-black"}`}>{item.icon}</span>
+                        <span
+                          className={`mr-2 ${
+                            isActive
+                              ? "text-white"
+                              : "text-black dark:text-gray-200"
+                          }`}
+                        >
+                          {item.icon}
+                        </span>
                         <span className="font-medium">{item.label}</span>
                       </button>
                     );
@@ -102,7 +146,9 @@ const SideBar = () => {
 
                 {/* NAVIGATION */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-semibold text-gray-400 mb-2">NAVIGATION</h3>
+                  <h3 className="text-xs font-semibold text-gray-400 dark:text-gray-500 mb-2">
+                    NAVIGATION
+                  </h3>
                   {navItems.map((item, index) => {
                     const isActive = activeNavIndex === index;
                     return (
@@ -114,10 +160,20 @@ const SideBar = () => {
                           toggleMenu();
                         }}
                         className={`flex items-center w-full px-4 py-3 mb-2 rounded-lg transition-colors ${
-                          isActive ? "bg-blue-600 text-white shadow-lg" : "bg-white text-black hover:bg-gray-100"
+                          isActive
+                            ? "bg-blue-600 text-white shadow-lg"
+                            : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                         }`}
                       >
-                        <span className={`mr-3 ${isActive ? "text-white" : "text-black"}`}>{item.icon}</span>
+                        <span
+                          className={`mr-3 ${
+                            isActive
+                              ? "text-white"
+                              : "text-black dark:text-gray-200"
+                          }`}
+                        >
+                          {item.icon}
+                        </span>
                         <span className="font-medium">{item.label}</span>
                       </button>
                     );
@@ -128,7 +184,7 @@ const SideBar = () => {
           </div>,
           document.body
         )}
-    </>
+    </div>
   );
 };
 
