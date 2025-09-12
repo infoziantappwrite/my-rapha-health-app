@@ -6,26 +6,24 @@ import AIHealthAssistant from './components/HealthAssistant';
 
 const MyJourney = () => {
   return (
-    <div>
-      {/* <Navbar /> */}
-      <div className="p-10 space-y-10">
-
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="space-y-10 max-w-6xl mx-auto ">
+        
         {/* Title */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Health Journey</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            My Health Journey
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
             Track your progress through comprehensive health screening and education
           </p>
         </div>
+
+        {/* Components */}
         <Progressbar />
         <HealthJourneyTimeline />
         <ActionCards />
         <AIHealthAssistant />
-
-
-
-
-
       </div>
     </div>
   )

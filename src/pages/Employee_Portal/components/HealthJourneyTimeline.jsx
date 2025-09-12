@@ -16,9 +16,9 @@ const steps = [
     status: "Complete",
     icon: User,
     color: "bg-green-500",
-    cardBg: "bg-green-50",
-    cardBorder: "border-green-200",
-    badgeColor: "bg-green-100 text-green-700",
+    cardBg: "bg-green-50 dark:bg-green-900/30",
+    cardBorder: "border-green-200 dark:border-green-700",
+    badgeColor: "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-300",
   },
   {
     id: 2,
@@ -27,9 +27,9 @@ const steps = [
     status: "In Progress",
     icon: Users,
     color: "bg-blue-500",
-    cardBg: "bg-blue-50",
-    cardBorder: "border-blue-200",
-    badgeColor: "bg-blue-100 text-blue-700",
+    cardBg: "bg-blue-50 dark:bg-blue-900/30",
+    cardBorder: "border-blue-200 dark:border-blue-700",
+    badgeColor: "bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-300",
   },
   {
     id: 3,
@@ -38,9 +38,9 @@ const steps = [
     status: "Available",
     icon: GraduationCap,
     color: "bg-yellow-500",
-    cardBg: "bg-yellow-50",
-    cardBorder: "border-yellow-200",
-    badgeColor: "bg-yellow-100 text-yellow-700",
+    cardBg: "bg-yellow-50 dark:bg-yellow-900/30",
+    cardBorder: "border-yellow-200 dark:border-yellow-700",
+    badgeColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-300",
   },
   {
     id: 4,
@@ -49,9 +49,9 @@ const steps = [
     status: "Available",
     icon: Calendar,
     color: "bg-yellow-500",
-    cardBg: "bg-yellow-50",
-    cardBorder: "border-yellow-200",
-    badgeColor: "bg-yellow-100 text-yellow-700",
+    cardBg: "bg-yellow-50 dark:bg-yellow-900/30",
+    cardBorder: "border-yellow-200 dark:border-yellow-700",
+    badgeColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-300",
   },
   {
     id: 5,
@@ -60,9 +60,9 @@ const steps = [
     status: "Coming Soon",
     icon: BarChart3,
     color: "bg-gray-400",
-    cardBg: "bg-gray-50",
-    cardBorder: "border-gray-300",
-    badgeColor: "bg-gray-100 text-gray-700",
+    cardBg: "bg-gray-50 dark:bg-gray-800",
+    cardBorder: "border-gray-300 dark:border-gray-700",
+    badgeColor: "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300",
   },
   {
     id: 6,
@@ -71,16 +71,16 @@ const steps = [
     status: "Coming Soon",
     icon: Stethoscope,
     color: "bg-gray-400",
-    cardBg: "bg-gray-50",
-    cardBorder: "border-gray-300",
-    badgeColor: "bg-gray-100 text-gray-700",
+    cardBg: "bg-gray-50 dark:bg-gray-800",
+    cardBorder: "border-gray-300 dark:border-gray-700",
+    badgeColor: "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300",
   },
 ];
 
 const HealthJourneyTimeline = () => {
   return (
-    <div className="border border-gray-300 rounded-lg p-6 shadow-sm bg-white">
-      <h2 className="text-lg font-semibold text-gray-800 mb-6">
+    <div className="border border-gray-300 dark:border-gray-700 rounded-lg p-6 shadow-sm bg-white dark:bg-gray-900 transition-colors duration-300">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-6">
         Health Journey Timeline
       </h2>
 
@@ -102,15 +102,13 @@ const HealthJourneyTimeline = () => {
 
               {/* Info */}
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 flex items-center gap-2">
+                <h3 className="font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
                   Step {step.id}: {step.title}
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${step.badgeColor}`}
-                  >
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${step.badgeColor}`}>
                     {step.status}
                   </span>
                 </h3>
-                <p className="text-sm text-gray-500">{step.description}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{step.description}</p>
               </div>
             </div>
           );
@@ -130,15 +128,13 @@ const HealthJourneyTimeline = () => {
                 className={`relative ${step.color} text-white w-14 h-14 flex items-center justify-center rounded-full`}
               >
                 <Icon className="w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-white border border-gray-300 text-gray-800 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold">
+                <span className="absolute -top-2 -right-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold">
                   {step.id}
                 </span>
               </div>
-              <h3 className="mt-2 font-semibold text-gray-800">{step.title}</h3>
-              <p className="text-xs text-gray-500">{step.description}</p>
-              <span
-                className={`mt-1 text-xs px-2 py-1 rounded-full ${step.badgeColor}`}
-              >
+              <h3 className="mt-2 font-semibold text-gray-800 dark:text-gray-100">{step.title}</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400">{step.description}</p>
+              <span className={`mt-1 text-xs px-2 py-1 rounded-full ${step.badgeColor}`}>
                 {step.status}
               </span>
             </div>

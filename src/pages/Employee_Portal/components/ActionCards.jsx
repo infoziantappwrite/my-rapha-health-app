@@ -8,9 +8,10 @@ const cards = [
     description: "Explore health education modules",
     button: "Start Learning",
     icon: GraduationCap,
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-    buttonStyle: "bg-purple-600 hover:bg-purple-700 text-white",
+    light: { bg: "bg-purple-50", color: "text-purple-600" },
+    dark: { bg: "dark:bg-purple-900/30", color: "dark:text-purple-400" },
+    buttonStyle:
+      "bg-purple-600 hover:bg-purple-700 text-white dark:bg-purple-500 dark:hover:bg-purple-600",
   },
   {
     id: 2,
@@ -18,9 +19,10 @@ const cards = [
     description: "Book your comprehensive health screening",
     button: "Schedule Now",
     icon: Calendar,
-    color: "text-blue-600",
-    bg: "bg-blue-50",
-    buttonStyle: "bg-blue-600 hover:bg-blue-700 text-white",
+    light: { bg: "bg-blue-50", color: "text-blue-600" },
+    dark: { bg: "dark:bg-blue-900/30", color: "dark:text-blue-400" },
+    buttonStyle:
+      "bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600",
   },
   {
     id: 3,
@@ -28,9 +30,10 @@ const cards = [
     description: "Access your health screening results",
     button: "Results Pending",
     icon: Activity,
-    color: "text-green-600",
-    bg: "bg-green-50",
-    buttonStyle: "bg-green-600 hover:bg-green-700 text-white",
+    light: { bg: "bg-green-50", color: "text-green-600" },
+    dark: { bg: "dark:bg-green-900/30", color: "dark:text-green-400" },
+    buttonStyle:
+      "bg-green-600 hover:bg-green-700 text-white dark:bg-green-500 dark:hover:bg-green-600",
   },
   {
     id: 4,
@@ -38,9 +41,10 @@ const cards = [
     description: "Get personalized health guidance",
     button: "Connect Now",
     icon: MessageCircle,
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-    buttonStyle: "bg-orange-600 hover:bg-orange-700 text-white",
+    light: { bg: "bg-orange-50", color: "text-orange-600" },
+    dark: { bg: "dark:bg-orange-900/30", color: "dark:text-orange-400" },
+    buttonStyle:
+      "bg-orange-600 hover:bg-orange-700 text-white dark:bg-orange-500 dark:hover:bg-orange-600",
   },
 ];
 
@@ -52,17 +56,18 @@ const ActionCards = () => {
         return (
           <div
             key={card.id}
-            className={`flex flex-col items-center p-6 rounded-xl shadow-sm ${card.bg}`}
+            className={`flex flex-col items-center p-6 rounded-xl shadow-sm 
+              ${card.light.bg} ${card.dark.bg}`}
           >
-            <Icon className={`w-10 h-10 mb-4 ${card.color}`} />
-            <h3 className="font-semibold text-gray-800 text-lg text-center">
+            <Icon className={`w-10 h-10 mb-4 ${card.light.color} ${card.dark.color}`} />
+            <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-lg text-center">
               {card.title}
             </h3>
-            <p className="text-sm text-gray-500 text-center mt-1">
+            <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-1">
               {card.description}
             </p>
             <button
-              className={`mt-4 px-4 py-2 rounded-lg text-sm font-medium ${card.buttonStyle}`}
+              className={`mt-4 px-4 py-2 rounded-lg text-sm font-medium transition ${card.buttonStyle}`}
             >
               {card.button}
             </button>
