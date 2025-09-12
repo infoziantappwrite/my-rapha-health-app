@@ -31,7 +31,7 @@ export default function Messages() {
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10  max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
       {/* Header */}
       <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
         Messages & Support
