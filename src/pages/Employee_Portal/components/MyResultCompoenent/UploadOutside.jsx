@@ -3,7 +3,7 @@ import { Upload } from 'lucide-react';
 
 const UploadOutside = () => {
   return (
-    <div className="flex justify-center bg-gray-100 dark:bg-gray-900 p-4">
+    <div className="flex justify-center  dark:bg-gray-900 p-4">
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 w-full max-w-full">
         
         {/* Header Section */}

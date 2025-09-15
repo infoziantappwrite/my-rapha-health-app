@@ -50,7 +50,7 @@ const SideBar = () => {
 
 
       {/* HEADER */}
-      <header className="flex items-center justify-between px-2 py-1 mb-1 bg-white dark:bg-gray-900 shadow-md">
+      <header className="flex items-center justify-between px-2 py-1 bg-white dark:bg-gray-900 shadow-md">
         <div className="flex items-center space-x-4">
           <div className="flex items-center">
             <Heart className="text-sky-500 mr-2" size={32} />

@@ -25,6 +25,12 @@ import Aiinsights from "./pages/Employer_Portal/Aiinsights";
 import MessageNavigatorParent from "./pages/Employer_Portal/MessageNavigatorParent";
 import NavigatorDashboard from "./pages/Navigator_Portal/NavigatorDashboard";
 
+import Queue from "./pages/Provider_Portal/Queue";
+import Samples from "./pages/Provider_Portal/Samples";
+import FollowUp from "./pages/Provider_Portal/FollowUp";
+import AppointmentDashboard from "./pages/Provider_Portal/AppointmentDashboard";
+import SettingsDashboard from "./pages/Provider_Portal/SettingsDashboard";
+
 export default function App() {
   return (
     <Router>
@@ -36,7 +42,9 @@ export default function App() {
         <Routes>
 
           {/* Redirect root to employee portal by default */}
-          <Route path="/" element={<MyJourney />} />
+          <Route path="/" element={<EmployeeLayout />} >
+          <Route index element={<MyJourney />} /> {/* /employee */}
+        </Route>
 
           <Route path="/employee" element={<EmployeeLayout />}>
 
@@ -64,10 +72,11 @@ export default function App() {
           </Route>
 
           <Route path="/provider" element={<ProviderLayout />}>
-            <Route index element={<div>Provider Dashboard</div>} />
-            <Route path="insights" element={<div>AI Insights Page</div>} />
-            <Route path="reports" element={<div>Reports Page</div>} />
-            <Route path="messages" element={<div>Message Navigator Page</div>} />
+              <Route index element={<Queue/>} />
+            <Route path="samples" element={<Samples/>} />
+            <Route path="follow-up" element={<FollowUp/>} />
+            <Route path="calendar" element={<AppointmentDashboard/>} />
+            <Route path="settings" element={<SettingsDashboard/>} />
           </Route>
 
           {/* Catch-all for undefined routes */}
