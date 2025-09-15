@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { GraduationCap, Calendar, Activity, MessageCircle } from "lucide-react";
 
 const cards = [
@@ -7,6 +8,7 @@ const cards = [
     title: "Continue Learning",
     description: "Explore health education modules",
     button: "Start Learning",
+    link: "/employee/education",
     icon: GraduationCap,
     light: { bg: "bg-purple-50", color: "text-purple-600" },
     dark: { bg: "dark:bg-purple-900/30", color: "dark:text-purple-400" },
@@ -18,6 +20,7 @@ const cards = [
     title: "Schedule Screening",
     description: "Book your comprehensive health screening",
     button: "Schedule Now",
+    link: "/employee/screening",
     icon: Calendar,
     light: { bg: "bg-blue-50", color: "text-blue-600" },
     dark: { bg: "dark:bg-blue-900/30", color: "dark:text-blue-400" },
@@ -29,6 +32,7 @@ const cards = [
     title: "View Results",
     description: "Access your health screening results",
     button: "Results Pending",
+    link: "/employee/results",
     icon: Activity,
     light: { bg: "bg-green-50", color: "text-green-600" },
     dark: { bg: "dark:bg-green-900/30", color: "dark:text-green-400" },
@@ -40,6 +44,7 @@ const cards = [
     title: "Talk With a Navigator",
     description: "Get personalized health guidance",
     button: "Connect Now",
+    link: "/employee/messages",
     icon: MessageCircle,
     light: { bg: "bg-orange-50", color: "text-orange-600" },
     dark: { bg: "dark:bg-orange-900/30", color: "dark:text-orange-400" },
@@ -56,8 +61,7 @@ const ActionCards = () => {
         return (
           <div
             key={card.id}
-            className={`flex flex-col items-center p-6 rounded-xl shadow-sm 
-              ${card.light.bg} ${card.dark.bg}`}
+            className={`flex flex-col items-center px-2 py-4 rounded-xl shadow-sm ${card.light.bg} ${card.dark.bg}`}
           >
             <Icon className={`w-10 h-10 mb-4 ${card.light.color} ${card.dark.color}`} />
             <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-lg text-center">
@@ -66,11 +70,12 @@ const ActionCards = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-1">
               {card.description}
             </p>
-            <button
-              className={`mt-4 px-4 py-2 rounded-lg text-sm font-medium transition ${card.buttonStyle}`}
+            <Link
+              to={card.link}
+              className={`mt-4 px-4 py-2 rounded-lg text-sm font-medium transition ${card.buttonStyle} text-center`}
             >
               {card.button}
-            </button>
+            </Link>
           </div>
         );
       })}
