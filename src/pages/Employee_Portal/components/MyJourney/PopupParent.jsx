@@ -1,12 +1,21 @@
-import React from "react";
+// PopupParent.jsx
+import React, { useState } from "react";
 import PopupHeader from "./PopupHeader";
-import Aiassist from "./Aiassist";
-import StepProgressCard from "./StepProgressCard";
 import PopupSections from "./PopupSections";
-import Popupbuttons from "./Popupbuttons";
+import PopupButtons from "./PopupButtons";
+import Aiassist from "./Aiassist";
+import NotificationToast from "../../../../components/NotificationToast";
 
 const PopupParent = ({ isOpen, step, onClose }) => {
+  const [toast, setToast] = useState(null);
+
   if (!isOpen || !step) return null;
+
+  const showNotification = (title, content) => {
+    setToast({ title, content });
+  };
+
+  const handleCloseToast = () => setToast(null);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -17,19 +26,25 @@ const PopupParent = ({ isOpen, step, onClose }) => {
       />
 
       {/* Popup box */}
-      <div className="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg w-full max-w-lg max-h-[80vh] overflow-y-auto z-10">
-        {/* Header (pass full step) */}
-        <PopupHeader stepData={step} onClose={onClose} />
-
-        {/* Body */}
-        <div className="p-6 flex flex-col gap-6">
-  <StepProgressCard stepData={step} />
-  <PopupSections stepData={step} />
-  <Popupbuttons stepData={step} />
-  <Aiassist step={step} />
-</div>
-
+      <div className="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg w-full max-w-lg max-h-[80vh] overflow-y-auto z-10 p-6">
+        <PopupHeader step={step} onClose={onClose} />
+        <div className="p-4 space-y-4">
+          <PopupSections stepData={step} />
+          <PopupButtons stepData={step} showNotification={showNotification} />
+          <Aiassist step={step} />
+        </div>
       </div>
+
+      {/* Notification Toast */}
+      {toast && (
+        <NotificationToast
+          title={toast.title}
+          content={toast.content}
+          bgColor="bg-blue-50 dark:bg-gray-800"
+          borderColor="border-blue-300 dark:border-gray-700"
+          onClose={handleCloseToast}
+        />
+      )}
     </div>
   );
 };

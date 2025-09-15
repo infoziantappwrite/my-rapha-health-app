@@ -1,5 +1,8 @@
-import React from "react";
+// ScreeningCards.jsx
+import React, { useState } from "react";
 import { Stethoscope } from "lucide-react";
+
+import MultiStepPopup from "../components/Screening/MultiStepPopup";
 
 const screenings = [
   {
@@ -42,56 +45,65 @@ const screenings = [
 ];
 
 const ScreeningCards = () => {
+  const [selectedScreening, setSelectedScreening] = useState(null);
+
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      {screenings.map((screen) => (
-        <div
-          key={screen.id}
-          className={`${screen.cardColor} rounded-2xl shadow-sm p-6 flex flex-col`}
-        >
-          {/* Header */}
-          <div className="flex items-center gap-3 mb-3">
-            <Stethoscope className="w-6 h-6 text-gray-700 dark:text-gray-200" />
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{screen.title}</h2>
-          </div>
-
-          {/* Description */}
-          <p className="text-gray-700 dark:text-gray-300 mb-3">{screen.description}</p>
-
-          {/* List */}
-          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
-            {screen.items.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-
-          {/* Preparation / Guidelines */}
+    <>
+      <div className="grid md:grid-cols-2 gap-6">
+        {screenings.map((screen) => (
           <div
-            className={`${screen.guidelineColor} p-3 rounded-lg text-sm font-medium mb-4`}
+            key={screen.id}
+            className={`${screen.cardColor} rounded-2xl shadow-sm p-6 flex flex-col`}
           >
-            <p className="font-semibold">{screen.prepTitle}</p>
-            <p>{screen.prepText}</p>
-          </div>
+            <div className="flex items-center gap-3 mb-3">
+              <Stethoscope className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{screen.title}</h2>
+            </div>
 
-          {/* CTA */}
-          <button
-            className={`${screen.buttonColor} text-white py-2 px-4 rounded-lg font-medium mb-3`}
-          >
-            {screen.buttonText}
-          </button>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">{screen.description}</p>
 
-          {/* Footer Links */}
-          <div className="flex gap-3 text-sm">
-            <button className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-              Is this right for me?
+            <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
+              {screen.items.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+
+            <div
+              className={`${screen.guidelineColor} p-3 rounded-lg text-sm font-medium mb-4`}
+            >
+              <p className="font-semibold">{screen.prepTitle}</p>
+              <p>{screen.prepText}</p>
+            </div>
+
+            <button
+              onClick={() => setSelectedScreening(screen)}
+              className={`${screen.buttonColor} text-white py-2 px-4 rounded-lg font-medium mb-3`}
+            >
+              {screen.buttonText}
             </button>
-            <button className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-              What to expect
-            </button>
+
+            {/* Footer Buttons on Card */}
+            <div className="flex gap-3 text-sm">
+              <button className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
+                Is this right for me?
+              </button>
+              <button className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
+                What to expect
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+
+      {/* Multi-Step Popup */}
+      {selectedScreening && (
+        <MultiStepPopup
+          isOpen={!!selectedScreening}
+          onClose={() => setSelectedScreening(null)}
+          screening={selectedScreening}
+        />
+      )}
+    </>
   );
 };
 

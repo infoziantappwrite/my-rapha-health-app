@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { CheckCircle2, Bell } from "lucide-react";
 
-const NotificationToast = ({ title, content, bgColor, borderColor, onClose }) => {
+const NotificationToast = ({ title, content, onClose }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger in-animation
     setVisible(true);
 
-    // Auto close after 3s with out-animation
     const timer = setTimeout(() => {
       setVisible(false);
-      // Delay calling onClose until animation finishes
       setTimeout(() => {
         if (onClose) onClose();
       }, 300); // Match transition duration
@@ -23,22 +20,23 @@ const NotificationToast = ({ title, content, bgColor, borderColor, onClose }) =>
   return (
     <div className="fixed top-4 right-4 z-50">
       <div
-        className={`flex items-start gap-3 rounded-lg shadow-md p-4 border ${bgColor} ${borderColor}
+        className={`flex items-start gap-3 rounded-lg shadow-lg p-5 border w-96
+          bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700
           transform transition-all duration-300
-          ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}
+          ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}
         `}
       >
         {/* Left Icon */}
-        <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-1" />
+        <CheckCircle2 className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mt-1" />
 
         {/* Content */}
         <div className="flex-1">
-          <div className="font-semibold">{title}</div>
-          <div className="text-sm text-gray-700">{content}</div>
+          <div className="font-semibold text-gray-900 dark:text-gray-100">{title}</div>
+          <div className="text-sm text-gray-700 dark:text-gray-300">{content}</div>
         </div>
 
         {/* Right Icon */}
-        <Bell className="h-5 w-5 text-gray-400" />
+        <Bell className="h-5 w-5 text-gray-400 dark:text-gray-300" />
       </div>
     </div>
   );
