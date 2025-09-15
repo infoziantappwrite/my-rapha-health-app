@@ -37,10 +37,9 @@ const Dropdown = ({ options, selected, onChange }) => {
               }}
               className={`flex items-center justify-between px-3 py-2 text-sm cursor-pointer 
                 hover:bg-emerald-50 dark:hover:bg-gray-700 
-                ${
-                  selected === opt
-                    ? "text-emerald-700 dark:text-emerald-400 font-medium"
-                    : "text-gray-700 dark:text-gray-200"
+                ${selected === opt
+                  ? "text-emerald-700 dark:text-emerald-400 font-medium"
+                  : "text-gray-700 dark:text-gray-200"
                 }`}
             >
               <span>{opt}</span>
@@ -59,10 +58,13 @@ const NavBarLocationTiming = () => {
   const [timeRange, setTimeRange] = useState("Last 30 Days");
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between 
-                    bg-white dark:bg-gray-900 
-                    px-4 sm:px-6 py-3 shadow-sm mb-1 
-                    space-y-3 sm:space-y-0">
+    <div
+  className="flex flex-col sm:flex-row items-start sm:items-center justify-between 
+             bg-white dark:bg-gray-900 
+             px-4 sm:px-6 py-2 shadow-sm mb-1 
+             space-y-3 sm:space-y-0
+             border-t border-gray-200 dark:border-gray-700 mt-1"
+>
       {/* Left Section - Logo + Titles + Location */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
         <Building2 className="w-6 h-6 text-emerald-500" />

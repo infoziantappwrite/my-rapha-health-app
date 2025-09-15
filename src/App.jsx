@@ -66,9 +66,6 @@ export default function App() {
 
           <Route path="/navigator" element={<NavigatorHubLayout />}>
             <Route index element={<NavigatorDashboard />} />
-            <Route path="insights" element={<div>AI Insights Page</div>} />
-            <Route path="reports" element={<div>Reports Page</div>} />
-            <Route path="messages" element={<div>Message Navigator Page</div>} />
           </Route>
 
           <Route path="/provider" element={<ProviderLayout />}>

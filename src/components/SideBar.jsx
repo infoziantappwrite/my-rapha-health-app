@@ -16,39 +16,97 @@ import {
   Sun,
 } from "lucide-react";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "../ThemeProvider";
 
 const SideBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activePortalIndex, setActivePortalIndex] = useState(0);
-  const [activeNavIndex, setActiveNavIndex] = useState(0);
   const { isDark, setIsDark } = useTheme();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const navItems = [
-    { icon: <Compass size={20} />, label: "My Journey", path: "/journey" },
-    { icon: <Award size={20} />, label: "Health Education", path: "/education" },
-    { icon: <Clock size={20} />, label: "Screening", path: "/screening" },
-    { icon: <BarChart2 size={20} />, label: "My Results", path: "/results" },
-    { icon: <Folder size={20} />, label: "Documents", path: "/documents" },
-    { icon: <MessageSquare size={20} />, label: "Messages", path: "/messages" },
+  // Portal Switcher
+  const portalItems = [
+    {
+      icon: <User size={20} />,
+      label: "Employee Portal",
+      path: "/employee",
+      activeColor: "bg-blue-600 text-white shadow-lg",
+      navActiveColor: "bg-blue-600 text-white shadow-lg"
+    },
+    {
+      icon: <Compass size={20} />,
+      label: "Navigator Hub",
+      path: "/navigator",
+      activeColor: "bg-violet-600 text-white shadow-lg",
+      navActiveColor: "bg-violet-600 text-white shadow-lg"
+    },
+    {
+      icon: <Server size={20} />,
+      label: "Provider Station",
+      path: "/provider",
+      activeColor: "bg-green-800 text-white shadow-lg",
+      navActiveColor: "bg-green-800 text-white shadow-lg"
+    },
+    {
+      icon: <Briefcase size={20} />,
+      label: "Employer Dashboard",
+      path: "/employer",
+      activeColor: "bg-green-500 text-white shadow-lg",
+      navActiveColor: "bg-green-500 text-white shadow-lg"
+    },
   ];
 
-  const portalItems = [
-    { icon: <User size={20} />, label: "Employee Portal", path: "/employee" },
-    { icon: <Compass size={20} />, label: "Navigator Hub", path: "/navigator" },
-    { icon: <Server size={20} />, label: "Provider Station", path: "/provider" },
-    { icon: <Briefcase size={20} />, label: "Employer Dashboard", path: "/employer" },
+
+
+  // 🔹 Employee Portal Navigation
+  const employeeNav = [
+    { icon: <Compass size={20} />, label: "My Journey", path: "/employee" },
+    { icon: <Award size={20} />, label: "Health Education", path: "/employee/education" },
+    { icon: <Clock size={20} />, label: "Screening", path: "/employee/screening" },
+    { icon: <BarChart2 size={20} />, label: "My Results", path: "/employee/results" },
+    { icon: <Folder size={20} />, label: "Documents", path: "/employee/documents" },
+    { icon: <MessageSquare size={20} />, label: "Messages", path: "/employee/messages" },
   ];
+
+  // 🔹 Employer Portal Navigation
+  const employerNav = [
+    { icon: <Briefcase size={20} />, label: "Dashboard", path: "/employer" },
+    { icon: <BarChart2 size={20} />, label: "AI Insights", path: "/employer/insights" },
+    { icon: <Folder size={20} />, label: "Reports", path: "/employer/reports" },
+    { icon: <MessageSquare size={20} />, label: "Messages", path: "/employer/messages" },
+  ];
+
+  // 🔹 Navigator Portal Navigation
+  const navigatorNav = [
+    { icon: <Compass size={20} />, label: "Navigator Dashboard", path: "/navigator" },
+  ];
+
+  // 🔹 Provider Portal Navigation
+  const providerNav = [
+    { icon: <Clock size={20} />, label: "Queue", path: "/provider" },
+    { icon: <Folder size={20} />, label: "Samples", path: "/provider/samples" },
+    { icon: <Award size={20} />, label: "Follow Up", path: "/provider/follow-up" },
+    { icon: <BarChart2 size={20} />, label: "Appointments", path: "/provider/calendar" },
+    { icon: <MessageSquare size={20} />, label: "Settings", path: "/provider/settings" },
+  ];
+
+  // 🔹 Detect which portal we are in
+  // Detect which portal we are in
+  let navItems = [];
+  let currentPortal = portalItems.find(p => location.pathname.startsWith(p.path));
+
+  if (location.pathname.startsWith("/employee")) navItems = employeeNav;
+  else if (location.pathname.startsWith("/employer")) navItems = employerNav;
+  else if (location.pathname.startsWith("/navigator")) navItems = navigatorNav;
+  else if (location.pathname.startsWith("/provider")) navItems = providerNav;
 
   return (
-  <div className=" max-w-7xl mx-auto space-y-6   ">
-
-
+    <div className="max-w-7xl mx-auto space-y-6">
       {/* HEADER */}
       <header className="flex items-center justify-between px-2 py-1 bg-white dark:bg-gray-900 shadow-md">
         <div className="flex items-center space-x-4">
@@ -116,32 +174,24 @@ const SideBar = () => {
                     SWITCH PORTAL
                   </h3>
                   {portalItems.map((item, index) => {
-                    const isActive = activePortalIndex === index;
+                    const isActive = location.pathname.startsWith(item.path);
                     return (
                       <button
                         key={index}
                         onClick={() => {
                           setActivePortalIndex(index);
                           navigate(item.path);
-                          toggleMenu();
+                          // toggleMenu();
                         }}
-                        className={`flex items-center justify-center w-full px-4 py-2 mb-2 rounded-lg transition-colors ${
-                          isActive
-                            ? "bg-blue-600 text-white shadow-lg"
+                        className={`flex items-center justify-center w-full px-4 py-2 mb-2 rounded-lg transition-colors ${isActive
+                            ? item.activeColor
                             : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        }`}
-                      >
-                        <span
-                          className={`mr-2 ${
-                            isActive
-                              ? "text-white"
-                              : "text-black dark:text-gray-200"
                           }`}
-                        >
-                          {item.icon}
-                        </span>
+                      >
+                        <span className="mr-2">{item.icon}</span>
                         <span className="font-medium">{item.label}</span>
                       </button>
+
                     );
                   })}
                 </div>
@@ -152,34 +202,25 @@ const SideBar = () => {
                     NAVIGATION
                   </h3>
                   {navItems.map((item, index) => {
-                    const isActive = activeNavIndex === index;
+                    const isActive = location.pathname === item.path;
                     return (
                       <button
                         key={index}
                         onClick={() => {
-                          setActiveNavIndex(index);
                           navigate(item.path);
-                          toggleMenu();
+                          // toggleMenu();
                         }}
-                        className={`flex items-center w-full px-4 py-3 mb-2 rounded-lg transition-colors ${
-                          isActive
-                            ? "bg-blue-600 text-white shadow-lg"
+                        className={`flex items-center w-full px-4 py-3 mb-2 rounded-lg transition-colors ${isActive
+                            ? currentPortal?.navActiveColor
                             : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        }`}
-                      >
-                        <span
-                          className={`mr-3 ${
-                            isActive
-                              ? "text-white"
-                              : "text-black dark:text-gray-200"
                           }`}
-                        >
-                          {item.icon}
-                        </span>
+                      >
+                        <span className="mr-3">{item.icon}</span>
                         <span className="font-medium">{item.label}</span>
                       </button>
                     );
                   })}
+
                 </div>
               </div>
             </div>

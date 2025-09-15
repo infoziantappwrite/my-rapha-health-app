@@ -6,13 +6,14 @@ import ComplianceBanner from './components/ComplianceBanner';
 const Reports = () => {
   return (
     <>
-    <div className='max-w-6xl mx-auto space-y-6 py-5 p-4 md:p-6 lg:p-0'>
-        <ReportsHeader />
-        <ReportTabs />
-
-      
-    </div>
-    <ComplianceBanner/>
+      <div className="mx-auto py-5 p-4 md:p-6 lg:p-0 mt-1">
+        {/* White Box Container */}
+        <div className="bg-white dark:bg-gray-900 shadow-sm rounded-xl p-6 space-y-6">
+          <ReportsHeader />
+          <ReportTabs />
+        </div>
+      </div>
+      <ComplianceBanner />
     </>
   )
 }
