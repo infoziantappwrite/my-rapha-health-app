@@ -26,9 +26,9 @@ const PopupParent = ({ isOpen, step, onClose }) => {
       />
 
       {/* Popup box */}
-      <div className="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg w-full max-w-lg max-h-[80vh] overflow-y-auto z-10 p-6">
-        <PopupHeader step={step} onClose={onClose} />
-        <div className="p-4 space-y-4">
+      <div className="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg w-full max-w-lg max-h-[80vh] overflow-y-auto z-10 ">
+        <PopupHeader stepData={step} onClose={onClose} />
+        <div className="p-6 space-y-4">
           <PopupSections stepData={step} />
           <PopupButtons stepData={step} showNotification={showNotification} />
           <Aiassist step={step} />

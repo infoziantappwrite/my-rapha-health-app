@@ -12,7 +12,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className=" dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 shadow-sm">
+    <nav className=" dark:bg-gray-900 border-y border-gray-300 dark:border-gray-700 shadow-sm">
         {/* Desktop view */}
         <div className="hidden md:flex items-center space-x-6 px-6 py-2">
           {navItems.map(({ name, path, icon: Icon, badge }) => (
