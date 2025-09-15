@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import PopupHeader from "./PopupHeader";
 import PopupSections from "./PopupSections";
-import PopupButtons from "./PopupButtons";
+import PopupButtons from "./Popupbuttons";
 import Aiassist from "./Aiassist";
 import NotificationToast from "../../../../components/NotificationToast";
 
