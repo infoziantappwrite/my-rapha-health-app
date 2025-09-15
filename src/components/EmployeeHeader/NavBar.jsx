@@ -12,7 +12,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className=" dark:bg-gray-900 border-y border-gray-300 dark:border-gray-700 shadow-sm">
+    <div className="border-b border-gray-300 dark:border-gray-700">
+    <nav className="max-w-7xl mx-auto dark:bg-gray-900  ">
         {/* Desktop view */}
         <div className="hidden md:flex items-center space-x-6 px-6 py-2">
           {navItems.map(({ name, path, icon: Icon, badge }) => (
@@ -77,5 +78,6 @@ export default function Navbar() {
           ))}
         </div>
       </nav>
+      </div>
   );
 }

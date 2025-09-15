@@ -58,13 +58,10 @@ const NavBarLocationTiming = () => {
   const [timeRange, setTimeRange] = useState("Last 30 Days");
 
   return (
+    <div className="shadow-sm border-b border-gray-200 dark:border-gray-700">
     <div
-  className="flex flex-col sm:flex-row items-start sm:items-center justify-between 
-             bg-white dark:bg-gray-900 
-             px-4 sm:px-6 py-2 shadow-sm mb-1 
-             space-y-3 sm:space-y-0
-             border-t border-gray-200 dark:border-gray-700 mt-1"
->
+      className="flex flex-col sm:flex-row items-start sm:items-center justify-between  max-w-7xl mx-auto dark:bg-gray-900  px-4 sm:px-6 py-2 space-y-3 sm:space-y-0"
+    >
       {/* Left Section - Logo + Titles + Location */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
         <Building2 className="w-6 h-6 text-emerald-500" />
@@ -103,6 +100,7 @@ const NavBarLocationTiming = () => {
           Updated 2025-01-21 11:30 AM
         </span>
       </div>
+    </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import ComplianceBanner from './components/ComplianceBanner';
 const EmployeerDashboard = () => {
   return (
     <>
-    <div className="bg-white dark:bg-gray-900 shadow-sm rounded-xl p-6 space-y-6 mt-1">
+    <div className=" dark:bg-gray-900 p-6 space-y-6 mt-1">
         <Tittlecard/>
         <DashboardLayout/>
         <ReportsCard/>
