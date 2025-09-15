@@ -142,72 +142,95 @@ const Table = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-200 dark:border-gray-700 rounded-lg">
-          <thead className="bg-gray-50 dark:bg-gray-800">
-            <tr className="text-xs text-gray-500 dark:text-gray-400">
-              <th className="p-3 text-left">
-                <input type="checkbox" />
-              </th>
-              <th className="p-3 text-left">Employee</th>
-              <th className="p-3 text-left">Risk Tier</th>
-              <th className="p-3 text-left">Condition</th>
-              <th className="p-3 text-left">Last Contact</th>
-              <th className="p-3 text-left">Navigator</th>
-              <th className="p-3 text-left">Progress</th>
-              <th className="p-3 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredEmployees.map((emp) => (
-              <tr key={emp.id} className="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                <td className="p-3">
-                  <input type="checkbox" />
-                </td>
-                <td className="p-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-semibold text-sm">
-                      {emp.name.split(" ").map((n) => n[0]).join("")}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">{emp.name}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">{emp.dept}</span>
-                    </div>
-                  </div>
-                </td>
-                <td className="p-3">
-                  <span className={`px-2 py-1 rounded-lg text-xs font-semibold ${riskColor(emp.risk)}`}>
-                    {emp.risk} ({emp.riskScore}/10)
-                  </span>
-                </td>
-                <td className="p-3 text-gray-600 dark:text-gray-300">{emp.condition}</td>
-                <td className="p-3 text-gray-600 dark:text-gray-300">{emp.lastContact}</td>
-                <td className="p-3 text-gray-600 dark:text-gray-300">{emp.navigator}</td>
-                <td className="p-3">
-                  <div className="w-24 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
-                    <div
-                      className="h-2 rounded-full bg-indigo-600 dark:bg-indigo-500"
-                      style={{ width: `${(emp.progress / emp.total) * 100}%` }}
-                    ></div>
-                  </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">{emp.progress}/{emp.total}</span>
-                </td>
-                <td className="p-3 flex gap-2">
-                  <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-                    <Eye className="h-4 w-4 text-gray-600 dark:text-gray-200" />
-                  </button>
-                  <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-                    <MessageCircle className="h-4 w-4 text-gray-600 dark:text-gray-200" />
-                  </button>
-                  <button className="p-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white">
-                    <Calendar className="h-4 w-4" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {/* Table */}
+<div className="overflow-x-auto">
+  <table className="min-w-full border border-gray-200 dark:border-gray-700 rounded-lg">
+    <thead className="bg-gray-50 dark:bg-gray-800">
+      <tr className="text-xs text-gray-500 dark:text-gray-400">
+        <th className="p-3 text-left">
+          <input type="checkbox" />
+        </th>
+        <th className="p-3 text-left">Employee</th>
+        <th className="p-3 text-left">Risk Tier</th>
+        {/* hide these on mobile */}
+        <th className="p-3 text-left hidden sm:table-cell">Condition</th>
+        <th className="p-3 text-left hidden sm:table-cell">Last Contact</th>
+        <th className="p-3 text-left hidden md:table-cell">Navigator</th>
+        <th className="p-3 text-left">Progress</th>
+        <th className="p-3 text-left">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredEmployees.map((emp) => (
+        <tr
+          key={emp.id}
+          className="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+        >
+          <td className="p-3">
+            <input type="checkbox" />
+          </td>
+          <td className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-semibold text-sm">
+                {emp.name.split(" ").map((n) => n[0]).join("")}
+              </div>
+              <div className="flex flex-col">
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  {emp.name}
+                </span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  {emp.dept}
+                </span>
+              </div>
+            </div>
+          </td>
+          <td className="p-3">
+            <span
+              className={`px-2 py-1 rounded-lg text-xs font-semibold ${riskColor(
+                emp.risk
+              )}`}
+            >
+              {emp.risk} ({emp.riskScore}/10)
+            </span>
+          </td>
+          {/* hidden on mobile */}
+          <td className="p-3 text-gray-600 dark:text-gray-300 hidden sm:table-cell">
+            {emp.condition}
+          </td>
+          <td className="p-3 text-gray-600 dark:text-gray-300 hidden sm:table-cell">
+            {emp.lastContact}
+          </td>
+          <td className="p-3 text-gray-600 dark:text-gray-300 hidden md:table-cell">
+            {emp.navigator}
+          </td>
+          <td className="p-3">
+            <div className="w-20 sm:w-24 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+              <div
+                className="h-2 rounded-full bg-indigo-600 dark:bg-indigo-500"
+                style={{ width: `${(emp.progress / emp.total) * 100}%` }}
+              ></div>
+            </div>
+            <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              {emp.progress}/{emp.total}
+            </span>
+          </td>
+          <td className="p-3 flex gap-2">
+            <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
+              <Eye className="h-4 w-4 text-gray-600 dark:text-gray-200" />
+            </button>
+            <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
+              <MessageCircle className="h-4 w-4 text-gray-600 dark:text-gray-200" />
+            </button>
+            <button className="p-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white">
+              <Calendar className="h-4 w-4" />
+            </button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
     </div>
   );
 };
