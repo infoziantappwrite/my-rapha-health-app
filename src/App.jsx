@@ -23,6 +23,7 @@ import EmployeerDashboard from "./pages/Employer_Portal/EmployeerDashboard";
 import Reports from "./pages/Employer_Portal/Reports";
 import Aiinsights from "./pages/Employer_Portal/Aiinsights";
 import MessageNavigatorParent from "./pages/Employer_Portal/MessageNavigatorParent";
+import NavigatorDashboard from "./pages/Navigator_Portal/NavigatorDashboard";
 
 import Queue from "./pages/Provider_Portal/Queue";
 import Samples from "./pages/Provider_Portal/Samples";
@@ -33,7 +34,7 @@ import SettingsDashboard from "./pages/Provider_Portal/SettingsDashboard";
 export default function App() {
   return (
     <Router>
-       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         {/* ✅ Navbar is common */}
         <SideBar />
 
@@ -57,14 +58,14 @@ export default function App() {
 
           {/* Employer Portal Routes */}
           <Route path="/employer" element={<EmployerLayout />}>
-              <Route index element={<EmployeerDashboard/>} />
-            <Route path="insights" element={<Aiinsights/>} />
-            <Route path="reports" element={<Reports/>} />
-            <Route path="messages" element={<MessageNavigatorParent/>} />
+            <Route index element={<EmployeerDashboard />} />
+            <Route path="insights" element={<Aiinsights />} />
+            <Route path="reports" element={<Reports />} />
+            <Route path="messages" element={<MessageNavigatorParent />} />
           </Route>
 
           <Route path="/navigator" element={<NavigatorHubLayout />}>
-              <Route index element={<div>Navigator Dashboard</div>} />
+            <Route index element={<NavigatorDashboard />} />
             <Route path="insights" element={<div>AI Insights Page</div>} />
             <Route path="reports" element={<div>Reports Page</div>} />
             <Route path="messages" element={<div>Message Navigator Page</div>} />
