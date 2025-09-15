@@ -17,6 +17,9 @@ const NotificationToast = ({ title, content, onClose }) => {
     return () => clearTimeout(timer);
   }, [onClose]);
 
+  // Truncate content if longer than 40 characters
+  const truncateContent = content.length > 40 ? content.slice(0, 40) + "..." : content;
+
   return (
     <div className="fixed top-4 right-4 z-50">
       <div
@@ -32,7 +35,7 @@ const NotificationToast = ({ title, content, onClose }) => {
         {/* Content */}
         <div className="flex-1">
           <div className="font-semibold text-gray-900 dark:text-gray-100">{title}</div>
-          <div className="text-sm text-gray-700 dark:text-gray-300">{content}</div>
+          <div className="text-sm text-gray-700 dark:text-gray-300">{truncateContent}</div>
         </div>
 
         {/* Right Icon */}
