@@ -10,7 +10,8 @@ export default function EmployerNavbar() {
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+    <div className="border-b  border-gray-300 dark:border-gray-700">
+    <nav className=" dark:bg-gray-900 max-w-7xl mx-auto">
       {/* Desktop view */}
       <div className="hidden md:flex items-center space-x-6 px-6 py-2">
         {navItems.map(({ name, path, icon: Icon }) => (
@@ -63,5 +64,6 @@ export default function EmployerNavbar() {
         ))}
       </div>
     </nav>
+    </div>
   );
 }

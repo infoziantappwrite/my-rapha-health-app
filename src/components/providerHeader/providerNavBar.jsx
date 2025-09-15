@@ -23,9 +23,9 @@ const ProviderNavBar = () => {
   };
 
   return (
-    <div className="border-y-1 border-gray-300 dark:border-gray-700 mb-4">
+    <div className="border-b-1 border-gray-300 dark:border-gray-700 mb-4  ">
       {/* Tabs container */}
-      <div className="bg-gray-50 dark:bg-gray-900 px-4 sm:px-10">
+      <div className="py-2 dark:bg-gray-900 px-4 sm:px-10 max-w-7xl mx-auto">
         <div className="bg-gray-200 dark:bg-gray-800 p-1 rounded-2xl flex w-full overflow-x-auto no-scrollbar">
           {TABS.map((tab) => (
             <div

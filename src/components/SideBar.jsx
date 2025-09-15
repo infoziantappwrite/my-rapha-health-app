@@ -106,45 +106,46 @@ const SideBar = () => {
   else if (location.pathname.startsWith("/provider")) navItems = providerNav;
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6">
+    <div className=" space-y-6 py-2  shadow-md border-b border-gray-200 dark:border-gray-700">
       {/* HEADER */}
-      <header className="flex items-center justify-between px-2 py-1 bg-white dark:bg-gray-900 shadow-md">
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center">
-            <Heart className="text-sky-500 mr-2" size={32} />
-            <div>
-              <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
-                Rapha Health
-              </h1>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                Enhanced Screening Platform v2.5
-              </p>
+      <div className="max-w-7xl  mx-auto">
+        <header className="flex items-center justify-between px-2 py-1 ">
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center">
+              <Heart className="text-sky-500 mr-2" size={32} />
+              <div>
+                <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
+                  Rapha Health
+                </h1>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  Enhanced Screening Platform v2.5
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex items-center space-x-4">
-          {/* THEME TOGGLE */}
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-          >
-            {isDark ? (
-              <Sun className="text-yellow-400" size={22} />
-            ) : (
-              <Moon className="text-gray-600 dark:text-gray-300" size={22} />
-            )}
-          </button>
+          <div className="flex items-center space-x-4">
+            {/* THEME TOGGLE */}
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              {isDark ? (
+                <Sun className="text-yellow-400" size={22} />
+              ) : (
+                <Moon className="text-gray-600 dark:text-gray-300" size={22} />
+              )}
+            </button>
 
-          <button
-            onClick={toggleMenu}
-            className="flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-          >
-            <Menu className="text-gray-500 dark:text-gray-300" size={24} />
-          </button>
-        </div>
-      </header>
-
+            <button
+              onClick={toggleMenu}
+              className="flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Menu className="text-gray-500 dark:text-gray-300" size={24} />
+            </button>
+          </div>
+        </header>
+      </div>
       {/* SIDEBAR PORTAL */}
       {isMenuOpen &&
         createPortal(
@@ -184,8 +185,8 @@ const SideBar = () => {
                           // toggleMenu();
                         }}
                         className={`flex items-center justify-center w-full px-4 py-2 mb-2 rounded-lg transition-colors ${isActive
-                            ? item.activeColor
-                            : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          ? item.activeColor
+                          : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                           }`}
                       >
                         <span className="mr-2">{item.icon}</span>
@@ -211,8 +212,8 @@ const SideBar = () => {
                           // toggleMenu();
                         }}
                         className={`flex items-center w-full px-4 py-3 mb-2 rounded-lg transition-colors ${isActive
-                            ? currentPortal?.navActiveColor
-                            : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          ? currentPortal?.navActiveColor
+                          : "bg-white dark:bg-gray-800 text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                           }`}
                       >
                         <span className="mr-3">{item.icon}</span>

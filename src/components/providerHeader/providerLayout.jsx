@@ -5,7 +5,7 @@ import ProviderNavBar from "./providerNavBar";
 
 export default function NavigatorHubLayout() {
     return (
-        <div className="max-w-7xl mx-auto ">
+        <div >
             <ProviderNavBar />
             <div>
                 <Outlet />  {/* ✅ renders the nested route */}
