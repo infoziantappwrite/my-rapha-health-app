@@ -1,6 +1,6 @@
 import React from 'react'
 import FilterAndRisk from './FilterAndRisk'
-import ChartDetails from './chartDetail'
+import ChartDetails from './ChartDetail'
 import InteractionValidation from './InteractionValidation'
 
 const Risk_Stratification = () => {
