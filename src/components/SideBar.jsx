@@ -72,7 +72,7 @@ const portalItems = [
    {
     icon: <Shield size={20} />, // Admin icon
     label: "Admin Dashboard",
-    path: "/admin",
+    path: "/admin/dashboard",
     activeColor: "bg-purple-600 text-white shadow-lg", // 🔹 Purple for admin
     navActiveColor: "bg-purple-600 text-white shadow-lg",
   },
@@ -113,7 +113,7 @@ const portalItems = [
   ];
 
   const adminNav = [
-  { icon: <LayoutDashboard size={20} />, label: "Dashboard", path: "/admin" },
+  { icon: <LayoutDashboard size={20} />, label: "Dashboard", path: "/admin/dashboard" },
   { icon: <Users size={20} />, label: "Users", path: "/admin/users" },
   { icon: <Briefcase size={20} />, label: "Employers", path: "/admin/employers" },
   { icon: <FileText size={20} />, label: "Content", path: "/admin/content" },
