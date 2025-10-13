@@ -46,7 +46,7 @@ import NavigatorActivity from "./pages/Employer_Portal/components/NavigatorActiv
 import EmployerMilestones from "./pages/Employer_Portal/components/EmployerMilestones";
 import EmployeeEngagement from "./pages/Employer_Portal/components/EmployeeEngagement";
 import Results from "./pages/Provider_Portal/Results";
-import Case from "./pages/Provider_Portal/case";
+import Case from "./pages/Provider_Portal/Case";
 
 export default function App() {
   return (
