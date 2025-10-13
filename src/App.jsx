@@ -45,6 +45,8 @@ import RiskSummary from "./pages/Employer_Portal/components/RiskSummary";
 import NavigatorActivity from "./pages/Employer_Portal/components/NavigatorActivity";
 import EmployerMilestones from "./pages/Employer_Portal/components/EmployerMilestones";
 import EmployeeEngagement from "./pages/Employer_Portal/components/EmployeeEngagement";
+import Results from "./pages/Provider_Portal/Results";
+import Case from "./pages/Provider_Portal/Case";
 
 export default function App() {
   return (
@@ -92,6 +94,9 @@ export default function App() {
             <Route index element={<Queue />} />
             <Route path="samples" element={<Samples />} />
             <Route path="follow-up" element={<FollowUp />} />
+             <Route path="results" element={<Results/>} />
+              <Route path="cases" element={<Case />} />
+
             <Route path="calendar" element={<AppointmentDashboard />} />
             <Route path="settings" element={<SettingsDashboard />} />
           </Route>
