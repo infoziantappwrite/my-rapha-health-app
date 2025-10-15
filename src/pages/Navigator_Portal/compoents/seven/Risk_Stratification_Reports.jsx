@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Import your components
 import RiskReports from './Pages/RiskReports/RiskReports';
 import DocumentViewer from './Pages/DocumentViewer';
-import NavigatorProductivity from './Pages/NavigatorProductivity';
+import NavigatorProductivity from './Pages/NavigatorProductivity/NavigatorProductivity';
 import ClinicalProtocols from './Pages/ClinicalProtocols';
 import AuditTrail from './Pages/AuditTrail';
 

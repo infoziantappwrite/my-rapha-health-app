@@ -73,7 +73,7 @@ const Total_Scores = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+    <div className="space-y-6 rounded-xl">
       {/* Risk Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {riskData.map((r, idx) => (
