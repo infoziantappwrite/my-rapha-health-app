@@ -47,6 +47,7 @@ import EmployerMilestones from "./pages/Employer_Portal/components/EmployerMiles
 import EmployeeEngagement from "./pages/Employer_Portal/components/EmployeeEngagement";
 import Results from "./pages/Provider_Portal/Results";
 import Case from "./pages/Provider_Portal/Case";
+import TablePage from "./pages/Navigator_Portal/compoents/secound/TablePage";
 
 export default function App() {
   return (
@@ -88,6 +89,7 @@ export default function App() {
 
           <Route path="/navigator" element={<NavigatorHubLayout />}>
             <Route index element={<NavigatorDashboard />} />
+            <Route path="table/:cohort" element={<TablePage />} />
           </Route>
 
           <Route path="/provider" element={<ProviderLayout />}>
