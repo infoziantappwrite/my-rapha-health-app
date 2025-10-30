@@ -48,6 +48,9 @@ import EmployeeEngagement from "./pages/Employer_Portal/components/EmployeeEngag
 import Results from "./pages/Provider_Portal/Results";
 import Case from "./pages/Provider_Portal/Case";
 import TablePage from "./pages/Navigator_Portal/compoents/secound/TablePage";
+import Employee_Health_Journey from "./pages/Employee_Latest/Employee_Health_Journey";
+import Employee_Profile from "./pages/Employee_Latest/Employee_Profile";
+import Employee_Family_Risk_Assessment from "./pages/Employee_Latest/Employee_Family_Risk_Assessment";
 
 export default function App() {
   return (
@@ -61,12 +64,14 @@ export default function App() {
 
           {/* Redirect root to employee portal by default */}
           <Route path="/" element={<EmployeeLayout />} >
-            <Route index element={<MyJourney />} /> {/* /employee */}
+            <Route index element={<div>LOGIN</div>} /> {/* /employee */}
           </Route>
 
           <Route path="/employee" element={<EmployeeLayout />}>
 
-            <Route index element={<MyJourney />} /> {/* /employee */}
+            <Route index element={<Employee_Health_Journey/>} /> {/* /employee */}
+            <Route path="profile" element={<Employee_Profile />} /> {/* /employee/profile */}
+            <Route path="family-risk" element={<Employee_Family_Risk_Assessment />} /> {/* /employee/journey */}
             <Route path="education" element={<HealthEducation />} /> {/* /employee/education */}
             <Route path="screening" element={<Screening />} /> {/* /employee/screening */}
             <Route path="documents" element={<DocumentVault />} /> {/* /employee/documents */}
