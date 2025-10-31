@@ -51,6 +51,10 @@ import TablePage from "./pages/Navigator_Portal/compoents/secound/TablePage";
 import Employee_Health_Journey from "./pages/Employee_Latest/Employee_Health_Journey";
 import Employee_Profile from "./pages/Employee_Latest/Employee_Profile";
 import Employee_Family_Risk_Assessment from "./pages/Employee_Latest/Employee_Family_Risk_Assessment";
+import Employee_Education_Journey from "./pages/Employee_Latest/Employee_Education_Journey";
+import Employee_Screening from "./pages/Employee_Latest/Employee_Screening";
+import Employee_Results from "./pages/Employee_Latest/Employee_Results";
+import Employee_Followup from "./pages/Employee_Latest/Employee_Followup";
 
 export default function App() {
   return (
@@ -72,11 +76,13 @@ export default function App() {
             <Route index element={<Employee_Health_Journey/>} /> {/* /employee */}
             <Route path="profile" element={<Employee_Profile />} /> {/* /employee/profile */}
             <Route path="family-risk" element={<Employee_Family_Risk_Assessment />} /> {/* /employee/journey */}
-            <Route path="education" element={<HealthEducation />} /> {/* /employee/education */}
-            <Route path="screening" element={<Screening />} /> {/* /employee/screening */}
+            <Route path="education" element={<Employee_Education_Journey/>} /> {/* /employee/education */}
+            <Route path="screening" element={<Employee_Screening/>} /> {/* /employee/screening */}
             <Route path="documents" element={<DocumentVault />} /> {/* /employee/documents */}
             <Route path="messages" element={<Messages />} /> {/* /employee/messages */}
-            <Route path="results" element={<MyResult />} /> {/* /employee/results */}
+            <Route path="results" element={<Employee_Results/>} /> {/* /employee/results */}
+            <Route path="follow-up" element={<Employee_Followup/>} /> {/* /employee/results */}
+
           </Route>
 
           {/* Employer Portal Routes */}
