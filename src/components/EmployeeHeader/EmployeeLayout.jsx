@@ -2,9 +2,10 @@ import Navbar from "./NavBar";
 import { Outlet } from "react-router-dom";
 
 export default function EmployeeLayout() {
+  
   return (
     <div>
-      {/* <Navbar />   ✅ employee-specific navbar */}
+      <Navbar />  
       <div>
         <Outlet />  {/* ✅ renders the nested route */}
       </div>
