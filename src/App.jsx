@@ -55,6 +55,7 @@ import Employee_Education_Journey from "./pages/Employee_Latest/Employee_Educati
 import Employee_Screening from "./pages/Employee_Latest/Employee_Screening";
 import Employee_Results from "./pages/Employee_Latest/Employee_Results";
 import Employee_Followup from "./pages/Employee_Latest/Employee_Followup";
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   return (
@@ -67,8 +68,8 @@ export default function App() {
         <Routes>
 
           {/* Redirect root to employee portal by default */}
-          <Route path="/" element={<EmployeeLayout />} >
-            <Route index element={<div>LOGIN</div>} /> {/* /employee */}
+          <Route path="/" element={<LoginPage/>} >
+            
           </Route>
 
           <Route path="/employee" element={<EmployeeLayout />}>
@@ -78,10 +79,10 @@ export default function App() {
             <Route path="family-risk" element={<Employee_Family_Risk_Assessment />} /> {/* /employee/journey */}
             <Route path="education" element={<Employee_Education_Journey/>} /> {/* /employee/education */}
             <Route path="screening" element={<Employee_Screening/>} /> {/* /employee/screening */}
-            <Route path="documents" element={<DocumentVault />} /> {/* /employee/documents */}
-            <Route path="messages" element={<Messages />} /> {/* /employee/messages */}
             <Route path="results" element={<Employee_Results/>} /> {/* /employee/results */}
             <Route path="follow-up" element={<Employee_Followup/>} /> {/* /employee/results */}
+            <Route path="documents" element={<DocumentVault />} /> 
+            {/* <Route path="messages" element={<Messages />} /> /employee/messages */}
 
           </Route>
 

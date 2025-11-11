@@ -3,6 +3,11 @@ import NavigatorButton from "./Components/NavigatorButton";
 import AskRaphaButton from "./Components/AskRaphaButton";
 import RaphaNavigatorCard from './Components/FollowUp/RaphaNavigatorCard';
 import ResultsAtAGlance from './Components/FollowUp/ResultsAtAGlance';
+import EmployeeFollowUpRoadmap from './Components/FollowUp/EmployeeFollowUpRoadmap';
+import Employee_ExpertConnect from './Components/FollowUp/Employee_ExpertConnect';
+import Employee_EducationCard from './Components/FollowUp/Employee_EducationCard';
+import HealthRecordsCard from './Components/FollowUp/HealthRecordsCard';
+import FollowUpSummary from './Components/FollowUp/FollowUpSummary';
 
 const Employee_Followup = () => {
   return (
@@ -146,10 +151,14 @@ const Employee_Followup = () => {
       </div>
 
       {/* --- Screening Section --- */}
-      <div className="bg-white dark:bg-gray-800 p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className='col-span-2'>
+      <div className="bg-white dark:bg-gray-800 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+            <div className='col-span-2 space-y-6'>
               <ResultsAtAGlance/>
+              <EmployeeFollowUpRoadmap/>
+              <Employee_ExpertConnect/>
+              <Employee_EducationCard/>    
+              <HealthRecordsCard/>        
 
             </div>
             <div className='col-span-1'>
@@ -158,6 +167,7 @@ const Employee_Followup = () => {
             </div>
 
           </div>
+          <FollowUpSummary/>
 
 
       </div>
